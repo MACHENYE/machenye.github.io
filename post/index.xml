@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Mcola的博客</title>
+    <link>https://example.com/post/</link>
+    <description>Recent content in Posts on Mcola的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Nov 2023 12:58:01 +0800</lastBuildDate><atom:link href="https://example.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>算法笔记</title>
+      <link>https://example.com/post/blog2/</link>
+      <pubDate>Wed, 01 Nov 2023 12:58:01 +0800</pubDate>
+      
+      <guid>https://example.com/post/blog2/</guid>
+      <description>取消同步流 🔗ios::sync_with_stdio(0), cin.tie(0), cout.tie(0); 在取消同步流的情况下，cin比scanf更快 本质：将答案存到缓冲区，不会直接</description>
+    </item>
+    
+    <item>
+      <title>蒻机的c&#43;&#43;笔记</title>
+      <link>https://example.com/post/blog/</link>
+      <pubDate>Wed, 01 Nov 2023 12:56:18 +0800</pubDate>
+      
+      <guid>https://example.com/post/blog/</guid>
+      <description>万能头文件： 🔗#include&amp;lt;bits/stdc++.h&amp;gt; 函数： 🔗把字符数组转为数字： 🔗char s[100]=&amp;#34;123456&amp;#34;; int x = atoi(s); cout&amp;lt;&amp;lt;x; //x = 123456 把表达式转换</description>
+    </item>
+    
+  </channel>
+</rss>

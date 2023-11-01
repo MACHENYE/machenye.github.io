@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>蒻机的c&#43;&#43;笔记 | Mcola的博客</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="万能头文件： 🔗#include&lt;bits/stdc&#43;&#43;.h&gt; 函数： 🔗把字符数组转为数字： 🔗char s[100]=&#34;123456&#34;; int x = atoi(s); cout&lt;&lt;x; //x = 123456 把表达式转换">
+<meta name="generator" content="Hugo 0.119.0">
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+  
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>首页</a>
+	
+	<a href="/posts">归档</a>
+	<a href="/tags">标签</a>
+	<a href="/about">关于</a>
+
+	
+
+	
+	  <a class="button" href="https://example.com/index.xml">订阅</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">蒻机的c&#43;&#43;笔记</h1>
+
+    <div class="tip">
+        <time datetime="2023-11-01 12:56:18 &#43;0800 CST">2023年11月01日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          6678字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          14分钟
+        </span>
+    </div>
+
+    
+    
+        
+  
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#把字符数组转为数字">把字符数组转为数字：</a></li>
+        <li><a href="#把表达式转换为字符串">把表达式转换为字符串：</a></li>
+        <li><a href="#形参与实参">形参与实参：</a></li>
+        <li><a href="#内联函数">内联函数：</a></li>
+        <li><a href="#函数的默认参数">函数的默认参数</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一维数组">一维数组：</a></li>
+        <li><a href="#二维数组">二维数组：</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#冒泡排序">冒泡排序：</a></li>
+        <li><a href="#选择排序">选择排序：</a></li>
+        <li><a href="#归并排序">归并排序：</a></li>
+        <li><a href="#快速排序">快速排序：</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#条件有序数组">条件:<strong>有序数组</strong></a>
+      <ul>
+        <li><a href="#优先向左取">优先向左取：</a></li>
+        <li><a href="#优先向右取">优先向右取：</a></li>
+        <li><a href="#lower_bound和upper_bound">lower_bound和upper_bound</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#汉诺塔">汉诺塔：</a></li>
+        <li><a href="#回旋汉诺塔">回旋汉诺塔：</a></li>
+        <li><a href="#杨辉三角">杨辉三角：</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#基本结构">基本结构:</a></li>
+        <li><a href="#排序方法">排序方法：</a></li>
+        <li><a href="#复杂结构体">复杂结构体：</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#set">set</a></li>
+    <li><a href="#map">map</a></li>
+    <li><a href="#vector">vector</a></li>
+    <li><a href="#stack-栈">stack 栈</a></li>
+    <li><a href="#queue-普通队列">queue 普通队列</a></li>
+    <li><a href="#deque-双端队列">deque 双端队列</a></li>
+    <li><a href="#priority_queue-优先队列堆">priority_queue 优先队列、堆</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#高精度乘法">高精度乘法：</a></li>
+        <li><a href="#高精度加法">高精度加法：</a></li>
+        <li><a href="#高精度除法">高精度除法：</a></li>
+        <li><a href="#高精度减法">高精度减法：</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#前缀和">前缀和：</a>
+      <ul>
+        <li><a href="#一维前缀和">一维前缀和：</a></li>
+        <li><a href="#二维前缀和">二维前缀和</a></li>
+      </ul>
+    </li>
+    <li><a href="#差分">差分：</a>
+      <ul>
+        <li><a href="#一维差分">一维差分：</a></li>
+        <li><a href="#二维差分">二维差分：</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#导弹拦截问题">导弹拦截问题：</a></li>
+        <li><a href="#找最大公约数辗转相除法">找最大公约数（辗转相除法）</a></li>
+        <li><a href="#二维矩阵顺逆时针旋转">二维矩阵顺/逆时针旋转</a></li>
+        <li><a href="#进制转换">进制转换：</a></li>
+        <li><a href="#dfs">DFS:</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#定义语法">定义语法：</a></li>
+        <li><a href="#类的使用">类的使用</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
+
+
+    
+
+
+    <div class="content">
+      <h1 id="万能头文件">万能头文件： <a href="#%e4%b8%87%e8%83%bd%e5%a4%b4%e6%96%87%e4%bb%b6" class="anchor">🔗</a></h1><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include&lt;bits/stdc++.h&gt;
+</span></span></span></code></pre></div><h1 id="函数">函数： <a href="#%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h1><h3 id="把字符数组转为数字">把字符数组转为数字： <a href="#%e6%8a%8a%e5%ad%97%e7%ac%a6%e6%95%b0%e7%bb%84%e8%bd%ac%e4%b8%ba%e6%95%b0%e5%ad%97" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">char</span> s[<span style="color:#666">100</span>]<span style="color:#666">=</span><span style="color:#b44">&#34;123456&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> x <span style="color:#666">=</span> atoi(s);
+</span></span><span style="display:flex;"><span>cout<span style="color:#666">&lt;&lt;</span>x;
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">//x = 123456
+</span></span></span></code></pre></div><h3 id="把表达式转换为字符串">把表达式转换为字符串： <a href="#%e6%8a%8a%e8%a1%a8%e8%be%be%e5%bc%8f%e8%bd%ac%e6%8d%a2%e4%b8%ba%e5%ad%97%e7%ac%a6%e4%b8%b2" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> a<span style="color:#666">=</span><span style="color:#666">10</span>,b<span style="color:#666">=</span><span style="color:#666">15</span>;
+</span></span><span style="display:flex;"><span>sprintf(ans,<span style="color:#b44">&#34;%d+%d=%d&#34;</span>,a,b,a<span style="color:#666">+</span>b);
+</span></span><span style="display:flex;"><span>cout<span style="color:#666">&lt;&lt;</span>ans;
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// ans = “10+15=25”
+</span></span></span></code></pre></div><h3 id="形参与实参">形参与实参： <a href="#%e5%bd%a2%e5%8f%82%e4%b8%8e%e5%ae%9e%e5%8f%82" class="anchor">🔗</a></h3><p><strong>传递形参</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">swap</span>(a,b)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> t<span style="color:#666">=</span>a;
+</span></span><span style="display:flex;"><span>	a <span style="color:#666">=</span> b;
+</span></span><span style="display:flex;"><span>	b <span style="color:#666">=</span> t;
+</span></span><span style="display:flex;"><span>	<span style="color:#080;font-style:italic">// 不改变原来a,b的值，只在此函数里改变
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span>swap(a,b);
+</span></span></code></pre></div><p><em>传递实参</em>：
+1.指针：
+需要多占内存</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">swap</span>(<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#666">*</span>a,<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#666">*</span>b)  <span style="color:#080;font-style:italic">// 可以直接改变原来的a,b值
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> t <span style="color:#666">=</span> <span style="color:#666">*</span>a; 
+</span></span><span style="display:flex;"><span>	<span style="color:#666">*</span>a <span style="color:#666">=</span> <span style="color:#666">*</span>b;
+</span></span><span style="display:flex;"><span>	<span style="color:#666">*</span>b <span style="color:#666">=</span> t;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>swap(<span style="color:#666">&amp;</span>a,<span style="color:#666">&amp;</span>b); <span style="color:#080;font-style:italic">// 传进去的是a,b的地址
+</span></span></span></code></pre></div><p>2.引用：
+引用起连接，关联的作用，本身不占有内存</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">swap</span>(<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#666">&amp;</span>a,<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#666">&amp;</span>b)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> t <span style="color:#666">=</span> a;
+</span></span><span style="display:flex;"><span>	a <span style="color:#666">=</span> b;
+</span></span><span style="display:flex;"><span>	b <span style="color:#666">=</span> t;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>swap(a,b);
+</span></span></code></pre></div><h3 id="内联函数">内联函数： <a href="#%e5%86%85%e8%81%94%e5%87%bd%e6%95%b0" class="anchor">🔗</a></h3><p>头前加<strong>incline</strong>或_incline
+作用： 使函数运行的更快
+缺点：无法实现复杂的操作</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>incline <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">g2</span>(<span style="color:#0b0;font-weight:bold">int</span> x) {<span style="color:#a2f;font-weight:bold">return</span> x<span style="color:#666">*</span>x;}
+</span></span></code></pre></div><h3 id="函数的默认参数">函数的默认参数 <a href="#%e5%87%bd%e6%95%b0%e7%9a%84%e9%bb%98%e8%ae%a4%e5%8f%82%e6%95%b0" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">double</span> <span style="color:#00a000">avg1</span>(<span style="color:#0b0;font-weight:bold">double</span> a,<span style="color:#0b0;font-weight:bold">double</span> b,<span style="color:#0b0;font-weight:bold">double</span> c)
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">double</span> avg2(<span style="color:#0b0;font-weight:bold">double</span> a,<span style="color:#0b0;font-weight:bold">double</span> b,<span style="color:#0b0;font-weight:bold">double</span> c<span style="color:#666">=</span><span style="color:#666">9</span>)
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">double</span> avg3(<span style="color:#0b0;font-weight:bold">double</span> a,<span style="color:#0b0;font-weight:bold">double</span> b<span style="color:#666">=</span><span style="color:#666">10</span>,<span style="color:#0b0;font-weight:bold">double</span> c<span style="color:#666">=</span><span style="color:#666">9</span>)
+</span></span><span style="display:flex;"><span><span style="">注意：不能</span><span style="color:#0b0;font-weight:bold">double</span> avg4(<span style="color:#0b0;font-weight:bold">double</span> a<span style="color:#666">=</span><span style="color:#666">10</span>,<span style="color:#0b0;font-weight:bold">double</span> b,<span style="color:#0b0;font-weight:bold">double</span> c)
+</span></span><span style="display:flex;"><span><span style="">默认后面的都得是默认</span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> main()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	cout<span style="color:#666">&lt;&lt;</span>avg1(<span style="color:#666">3</span>,<span style="color:#666">2</span>,<span style="color:#666">1</span>)<span style="color:#666">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>	cout<span style="color:#666">&lt;&lt;</span>avg2(<span style="color:#666">3</span>,<span style="color:#666">2</span>)<span style="color:#666">&lt;&lt;</span>endl <span style="color:#080;font-style:italic">// 没有写c为多少则默认c为默认值
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
+</span></span></code></pre></div><h1 id="动态分配内存">动态分配内存： <a href="#%e5%8a%a8%e6%80%81%e5%88%86%e9%85%8d%e5%86%85%e5%ad%98" class="anchor">🔗</a></h1><h3 id="一维数组">一维数组： <a href="#%e4%b8%80%e7%bb%b4%e6%95%b0%e7%bb%84" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> n;
+</span></span><span style="display:flex;"><span>    cin<span style="color:#666">&gt;&gt;</span>n;
+</span></span><span style="display:flex;"><span>    num <span style="color:#666">*</span>a<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">new</span> num[n]; <span style="color:#080;font-style:italic">// 动态分配内存
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="">···</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">delete</span> []a; <span style="color:#080;font-style:italic">// 结束动态分配的内存
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    a <span style="color:#666">=</span> <span style="color:#a2f">NULL</span>; <span style="color:#080;font-style:italic">// 把a重新赋成空指针
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
+</span></span></code></pre></div><h3 id="二维数组">二维数组： <a href="#%e4%ba%8c%e7%bb%b4%e6%95%b0%e7%bb%84" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include&lt;bits/stdc++.h&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> h,w,lx,ly,rx,ry;
+</span></span><span style="display:flex;"><span>    cin<span style="color:#666">&gt;&gt;</span>h<span style="color:#666">&gt;&gt;</span>w;
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#666">**</span>a<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">new</span> <span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">*</span> [h];
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">0</span>;i<span style="color:#666">&lt;</span>h;i<span style="color:#666">++</span>)  <span style="color:#080;font-style:italic">//申请
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        a[i]<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">new</span> <span style="color:#0b0;font-weight:bold">int</span> [w];
+</span></span><span style="display:flex;"><span>    <span style="">···</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">0</span>;i<span style="color:#666">&lt;</span>h;i<span style="color:#666">++</span>) <span style="color:#080;font-style:italic">// 释放
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">delete</span> []a[i];
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">delete</span> []a;
+</span></span><span style="display:flex;"><span>    a<span style="color:#666">=</span><span style="color:#a2f">NULL</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="初始化数组">初始化数组： <a href="#%e5%88%9d%e5%a7%8b%e5%8c%96%e6%95%b0%e7%bb%84" class="anchor">🔗</a></h1><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="">只能赋值为</span><span style="color:#666">-</span><span style="color:#666">1</span><span style="">或</span><span style="color:#666">0</span><span style="">其他不行</span>
+</span></span><span style="display:flex;"><span>memset(a,<span style="color:#666">0</span>,<span style="color:#a2f;font-weight:bold">sizeof</span>(a));
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// 名称，初始化的值
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>memset(a,<span style="color:#666">0</span>,<span style="color:#a2f;font-weight:bold">sizeof</span>(<span style="color:#0b0;font-weight:bold">int</span>)<span style="color:#666">*</span><span style="color:#666">10</span>); <span style="color:#080;font-style:italic">//前十个赋为0
+</span></span></span></code></pre></div><h1 id="排序">排序： <a href="#%e6%8e%92%e5%ba%8f" class="anchor">🔗</a></h1><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> n<span style="color:#666">=</span><span style="color:#666">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> a[<span style="color:#666">10</span>] <span style="color:#666">=</span> {<span style="color:#666">5</span>,<span style="color:#666">64</span>,<span style="color:#666">8</span>,<span style="color:#666">51</span>,<span style="color:#666">51</span>,<span style="color:#666">52</span>,<span style="color:#666">1</span>,<span style="color:#666">35</span>,<span style="color:#666">1</span>,<span style="color:#666">356</span>};
+</span></span></code></pre></div><h3 id="冒泡排序">冒泡排序： <a href="#%e5%86%92%e6%b3%a1%e6%8e%92%e5%ba%8f" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">0</span>;i<span style="color:#666">&lt;</span>n<span style="color:#666">-</span><span style="color:#666">1</span>;i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> j<span style="color:#666">=</span><span style="color:#666">0</span>;j<span style="color:#666">&lt;</span>n<span style="color:#666">-</span>i<span style="color:#666">-</span><span style="color:#666">1</span>;j<span style="color:#666">++</span>)<span style="color:#080;font-style:italic">//轮数
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">if</span>(a[j]<span style="color:#666">&lt;</span>a[j<span style="color:#666">+</span><span style="color:#666">1</span>])<span style="color:#080;font-style:italic">//相邻比较大小
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>            swap(a[j],a[j<span style="color:#666">+</span><span style="color:#666">1</span>]);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h3 id="选择排序">选择排序： <a href="#%e9%80%89%e6%8b%a9%e6%8e%92%e5%ba%8f" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">0</span>;i<span style="color:#666">&lt;</span>n;i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> k<span style="color:#666">=</span>i;<span style="color:#080;font-style:italic">//选出一个
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> j<span style="color:#666">=</span>i<span style="color:#666">+</span><span style="color:#666">1</span>;j<span style="color:#666">&lt;</span>n;j<span style="color:#666">++</span>)<span style="color:#080;font-style:italic">//依次与后面的数比较
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">if</span>(a[k]<span style="color:#666">&lt;</span>a[j])
+</span></span><span style="display:flex;"><span>            k <span style="color:#666">=</span> j;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        swap(a[i],a[k]);
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h3 id="归并排序">归并排序： <a href="#%e5%bd%92%e5%b9%b6%e6%8e%92%e5%ba%8f" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include&lt;iostream&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">int</span> N <span style="color:#666">=</span> <span style="color:#666">1e6</span><span style="color:#666">+</span><span style="color:#666">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> q[N],temp[N];
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> n;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">merge_sort</span>(<span style="color:#0b0;font-weight:bold">int</span> q[],<span style="color:#0b0;font-weight:bold">int</span> l, <span style="color:#0b0;font-weight:bold">int</span> r)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span>(l<span style="color:#666">&gt;=</span>r) <span style="color:#a2f;font-weight:bold">return</span> ;
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> mid <span style="color:#666">=</span> (l<span style="color:#666">+</span>r)<span style="color:#666">/</span><span style="color:#666">2</span>;<span style="color:#080;font-style:italic">// 以中间位置为界
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    merge_sort(q,l,mid) , merge_sort(q,mid<span style="color:#666">+</span><span style="color:#666">1</span>,r);<span style="color:#080;font-style:italic">//递归，把左半边和右半边分别排好序
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> k <span style="color:#666">=</span><span style="color:#666">0</span>,i<span style="color:#666">=</span>l,j<span style="color:#666">=</span>mid<span style="color:#666">+</span><span style="color:#666">1</span>;<span style="color:#080;font-style:italic">// i为左半边起点，j为右半边起点
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">while</span>(i<span style="color:#666">&lt;=</span>mid <span style="color:#666">&amp;&amp;</span> j<span style="color:#666">&lt;=</span>r)
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">if</span>(q[i]<span style="color:#666">&lt;=</span>q[j]) temp[k<span style="color:#666">++</span>] <span style="color:#666">=</span> q[i<span style="color:#666">++</span>];<span style="color:#080;font-style:italic">//把q[i]和q[j]中较小的放到temp[]中
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">else</span> temp[k<span style="color:#666">++</span>] <span style="color:#666">=</span> q[j<span style="color:#666">++</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">while</span>(i<span style="color:#666">&lt;=</span>mid) temp[k<span style="color:#666">++</span>] <span style="color:#666">=</span> q[i<span style="color:#666">++</span>];<span style="color:#080;font-style:italic">//如果j走完了i还没走完就把i剩下的全部放到temp[]中
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">while</span>(j<span style="color:#666">&lt;=</span>r) temp[k<span style="color:#666">++</span>] <span style="color:#666">=</span> q[j<span style="color:#666">++</span>];<span style="color:#080;font-style:italic">//如果i走完了j还没走完就把j剩下的全部放到temp[]中
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">for</span>(i <span style="color:#666">=</span> l,j<span style="color:#666">=</span><span style="color:#666">0</span>;i<span style="color:#666">&lt;=</span>r;i<span style="color:#666">++</span>,j<span style="color:#666">++</span>) q[i] <span style="color:#666">=</span> temp[j];<span style="color:#080;font-style:italic">//把q[]中的每一个用temp[]来替换
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    cin <span style="color:#666">&gt;&gt;</span> n;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span><span style="color:#666">0</span>;i<span style="color:#666">&lt;</span>n;i<span style="color:#666">++</span>) cin <span style="color:#666">&gt;&gt;</span> q[i];
+</span></span><span style="display:flex;"><span>    merge_sort(q,<span style="color:#666">0</span>,n<span style="color:#666">-</span><span style="color:#666">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">0</span>;i<span style="color:#666">&lt;</span>n;i<span style="color:#666">++</span>) cout <span style="color:#666">&lt;&lt;</span> q[i] <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="快速排序">快速排序： <a href="#%e5%bf%ab%e9%80%9f%e6%8e%92%e5%ba%8f" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> a[<span style="color:#666">5</span>]<span style="color:#666">=</span>{<span style="color:#666">1</span>,<span style="color:#666">3</span>,<span style="color:#666">2</span>,<span style="color:#666">5</span>,<span style="color:#666">4</span>};
+</span></span><span style="display:flex;"><span>    sort(a,a<span style="color:#666">+</span><span style="color:#666">5</span>);<span style="color:#080;font-style:italic">//注意a是从哪开始的
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  <span style="color:#080;font-style:italic">//sort(a+1,a+1+5); 有这种情况，a从1开始读入而不是从0开始
+</span></span></span></code></pre></div><h1 id="二分法">二分法： <a href="#%e4%ba%8c%e5%88%86%e6%b3%95" class="anchor">🔗</a></h1><h2 id="条件有序数组">条件:<strong>有序数组</strong> <a href="#%e6%9d%a1%e4%bb%b6%e6%9c%89%e5%ba%8f%e6%95%b0%e7%bb%84" class="anchor">🔗</a></h2><h3 id="优先向左取">优先向左取： <a href="#%e4%bc%98%e5%85%88%e5%90%91%e5%b7%a6%e5%8f%96" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">while</span>(l<span style="color:#666">&lt;</span>r)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> mid <span style="color:#666">=</span> (l<span style="color:#666">+</span>r)<span style="color:#666">/</span><span style="color:#666">2</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">if</span>(check(mid)) r<span style="color:#666">=</span>mid;
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">else</span> l<span style="color:#666">=</span>mid<span style="color:#666">+</span><span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h3 id="优先向右取">优先向右取： <a href="#%e4%bc%98%e5%85%88%e5%90%91%e5%8f%b3%e5%8f%96" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">while</span>(l<span style="color:#666">&lt;</span>r)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> mid <span style="color:#666">=</span> (l<span style="color:#666">+</span>r<span style="color:#666">+</span><span style="color:#666">1</span>)<span style="color:#666">/</span><span style="color:#666">2</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">if</span>(check(mid)) l<span style="color:#666">=</span>mid;
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">else</span> r<span style="color:#666">=</span>mid<span style="color:#666">-</span><span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h3 id="lower_bound和upper_bound">lower_bound和upper_bound <a href="#lower_bound%e5%92%8cupper_bound" class="anchor">🔗</a></h3><p>找到第一个<strong>大于等于</strong>所求数<strong>位置</strong>  <strong>（指针/迭代器）</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">auto</span> j <span style="color:#666">=</span> lower_bound(a,a<span style="color:#666">+</span><span style="color:#666">10</span>,<span style="color:#666">6</span>); <span style="color:#080;font-style:italic">//从a数组下标0到10，找大于等于6的一个数的位置
+</span></span></span></code></pre></div><p>找到第一个<strong>小于等于</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">auto</span> j <span style="color:#666">=</span> lower_bound(a,a<span style="color:#666">+</span><span style="color:#666">10</span><span style="">，</span><span style="color:#666">6</span><span style="">，</span>greater<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span>());
+</span></span></code></pre></div><p>找到第一个<strong>大于</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">auto</span> j <span style="color:#666">=</span> upper_bound(a,a<span style="color:#666">+</span><span style="color:#666">10</span>,<span style="color:#666">6</span>);
+</span></span></code></pre></div><p>找到第一个<strong>小于</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">auto</span> j <span style="color:#666">=</span> upper_bound(a,a<span style="color:#666">+</span><span style="color:#666">10</span>,<span style="color:#666">6</span>,greater<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span>());
+</span></span></code></pre></div><p>如果要返回<strong>下标</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> lower_bound(a,a<span style="color:#666">+</span><span style="color:#666">10</span>,<span style="color:#666">6</span>)<span style="color:#666">-</span>a;  <span style="color:#080;font-style:italic">// 注意后面的a表示a数组的起始地址
+</span></span></span></code></pre></div><p><strong>注意</strong> map 和 set 的迭代器不能这样做减法</p>
+<h1 id="递归问题">递归问题： <a href="#%e9%80%92%e5%bd%92%e9%97%ae%e9%a2%98" class="anchor">🔗</a></h1><h3 id="汉诺塔">汉诺塔： <a href="#%e6%b1%89%e8%af%ba%e5%a1%94" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;bits/stdc++.h&gt;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">hanoi</span>(<span style="color:#0b0;font-weight:bold">int</span> n,<span style="color:#0b0;font-weight:bold">char</span> a,<span style="color:#0b0;font-weight:bold">char</span> b,<span style="color:#0b0;font-weight:bold">char</span> c)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span>(n<span style="color:#666">==</span><span style="color:#666">0</span>) <span style="color:#a2f;font-weight:bold">return</span>;
+</span></span><span style="display:flex;"><span>    hanoi(n<span style="color:#666">-</span><span style="color:#666">1</span>,a,c,b);<span style="color:#080;font-style:italic">//把n-1个挪到过渡的柱子
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    cout<span style="color:#666">&lt;&lt;</span>n<span style="color:#666">&lt;&lt;</span><span style="color:#b44">&#39; &#39;</span><span style="color:#666">&lt;&lt;</span>a<span style="color:#666">&lt;&lt;</span><span style="color:#b44">&#34; &#34;</span><span style="color:#666">&lt;&lt;</span>b<span style="color:#666">&lt;&lt;</span>endl;<span style="color:#080;font-style:italic">//把最下方的盘挪到目的地
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    hanoi(n<span style="color:#666">-</span><span style="color:#666">1</span>,c,b,a);<span style="color:#080;font-style:italic">//把过渡柱子上的n-1盘，挪到目的地
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#0b0;font-weight:bold">int</span> n;
+</span></span><span style="display:flex;"><span>   cin <span style="color:#666">&gt;&gt;</span> n;
+</span></span><span style="display:flex;"><span>   hanoi(n,<span style="color:#b44">&#39;A&#39;</span>,<span style="color:#b44">&#39;B&#39;</span>,<span style="color:#b44">&#39;C&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="回旋汉诺塔">回旋汉诺塔： <a href="#%e5%9b%9e%e6%97%8b%e6%b1%89%e8%af%ba%e5%a1%94" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include&lt;cstdio&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#include&lt;iostream&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">char</span> <span style="color:#00a000">next</span>(<span style="color:#0b0;font-weight:bold">char</span> x){
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> (x<span style="color:#666">==</span><span style="color:#b44">&#39;A&#39;</span>)<span style="color:#666">?</span><span style="color:#b44">&#39;B&#39;</span><span style="color:#666">:</span>((x<span style="color:#666">==</span><span style="color:#b44">&#39;B&#39;</span>)<span style="color:#666">?</span><span style="color:#b44">&#39;C&#39;</span><span style="color:#666">:</span><span style="color:#b44">&#39;A&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">hanoi</span>(<span style="color:#0b0;font-weight:bold">int</span> n,<span style="color:#0b0;font-weight:bold">char</span> from,<span style="color:#0b0;font-weight:bold">char</span> to){
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span>(n<span style="color:#666">!=</span><span style="color:#666">0</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">if</span>(next(next(from))<span style="color:#666">==</span>to){
+</span></span><span style="display:flex;"><span>            <span style="color:#0b0;font-weight:bold">char</span> buffer<span style="color:#666">=</span>next(from);
+</span></span><span style="display:flex;"><span>            hanoi(n<span style="color:#666">-</span><span style="color:#666">1</span>,from,to); <span style="color:#080;font-style:italic">// 把n-1个盘从A移到C
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>            printf(<span style="color:#b44">&#34;%d %c %c</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>,n,from,buffer); <span style="color:#080;font-style:italic">// 表示把底下的盘从A移到B
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>            hanoi(n<span style="color:#666">-</span><span style="color:#666">1</span>,to,from); <span style="color:#080;font-style:italic">// 把n-1个盘从C移到A
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>            printf(<span style="color:#b44">&#34;%d %c %c</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span>,n,buffer,to); <span style="color:#080;font-style:italic">// 表示把底下的盘从B移到C
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>            hanoi(n<span style="color:#666">-</span><span style="color:#666">1</span>,from,to); <span style="color:#080;font-style:italic">// 把n-1个盘从A移到C
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        }
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">else</span>{<span style="color:#080;font-style:italic">//B到C这种情况
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>            <span style="color:#0b0;font-weight:bold">char</span> buffer<span style="color:#666">=</span>next(next(from));
+</span></span><span style="display:flex;"><span>            hanoi(n<span style="color:#666">-</span><span style="color:#666">1</span>,from,buffer); <span style="color:#080;font-style:italic">// 把n-1个盘从B移到A
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>            printf(<span style="color:#b44">&#34;%d %c %c</span><span style="color:#b62;font-weight:bold">\n</span><span style="color:#b44">&#34;</span> ,n,from,to); <span style="color:#080;font-style:italic">// 表示把底下的盘从B移到C
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>            hanoi(n<span style="color:#666">-</span><span style="color:#666">1</span>,buffer,to); <span style="color:#080;font-style:italic">// 把n-1个盘从A移到C
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>(){
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> n;
+</span></span><span style="display:flex;"><span>    scanf(<span style="color:#b44">&#34;%d&#34;</span>,<span style="color:#666">&amp;</span>n);
+</span></span><span style="display:flex;"><span>    hanoi(n,<span style="color:#b44">&#39;A&#39;</span>,<span style="color:#b44">&#39;C&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="杨辉三角">杨辉三角： <a href="#%e6%9d%a8%e8%be%89%e4%b8%89%e8%a7%92" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include&lt;iostream&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">yhsj</span>(<span style="color:#0b0;font-weight:bold">int</span> m,<span style="color:#0b0;font-weight:bold">int</span> n)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> a[<span style="color:#666">2</span>][<span style="color:#666">2</span>]<span style="color:#666">=</span>{<span style="color:#666">1</span>,<span style="color:#666">0</span>,<span style="color:#666">1</span>,<span style="color:#666">1</span>};
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span>(m<span style="color:#666">==</span>n) <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span>(n<span style="color:#666">==</span><span style="color:#666">1</span>) <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> yhsj(m<span style="color:#666">-</span><span style="color:#666">1</span>,n)<span style="color:#666">+</span>yhsj(m<span style="color:#666">-</span><span style="color:#666">1</span>,n<span style="color:#666">-</span><span style="color:#666">1</span>);<span style="color:#080;font-style:italic">///*********
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> m,n;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#666">&gt;&gt;</span> m <span style="color:#666">&gt;&gt;</span> n;
+</span></span><span style="display:flex;"><span>    cout <span style="color:#666">&lt;&lt;</span> yhsj(m,n);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="结构体">结构体： <a href="#%e7%bb%93%e6%9e%84%e4%bd%93" class="anchor">🔗</a></h1><h3 id="基本结构">基本结构: <a href="#%e5%9f%ba%e6%9c%ac%e7%bb%93%e6%9e%84" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">struct</span> <span style="color:#00f">student</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	string name;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> fenshu;
+</span></span><span style="display:flex;"><span>};  <span style="color:#080;font-style:italic">// **别忘了分号**
+</span></span></span></code></pre></div><h3 id="排序方法">排序方法： <a href="#%e6%8e%92%e5%ba%8f%e6%96%b9%e6%b3%95" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">bool</span> <span style="color:#00a000">cmp</span>(student a,student b)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#080;font-style:italic">//具体看题目要求怎么排序
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	<span style="color:#a2f;font-weight:bold">return</span> a.fenshu<span style="color:#666">&gt;</span>b.fenshu;  <span style="color:#080;font-style:italic">// 中间的符号决定排序顺序，&gt;就大到小
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
+</span></span></code></pre></div><h3 id="复杂结构体">复杂结构体： <a href="#%e5%a4%8d%e6%9d%82%e7%bb%93%e6%9e%84%e4%bd%93" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">0</span>;i<span style="color:#666">&lt;</span>n;i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        cin<span style="color:#666">&gt;&gt;</span>bh<span style="color:#666">&gt;&gt;</span>jinru<span style="color:#666">&gt;&gt;</span>likai;
+</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">bool</span> flag<span style="color:#666">=</span><span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> j<span style="color:#666">=</span><span style="color:#666">0</span>;j<span style="color:#666">&lt;</span>num;j<span style="color:#666">++</span>) <span style="color:#080;font-style:italic">// 判断之前是否有相同的
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">if</span>(a[j].bh<span style="color:#666">==</span>bh)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                a[j].time<span style="color:#666">+=</span>shijian(jinru,likai); <span style="color:#080;font-style:italic">// 如果相同就把时间加上去 //
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>                flag<span style="color:#666">=</span><span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#a2f;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">if</span>(flag) <span style="color:#080;font-style:italic">//第一次读入
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        {
+</span></span><span style="display:flex;"><span>            a[num].bh<span style="color:#666">=</span>bh;
+</span></span><span style="display:flex;"><span>            a[num].time<span style="color:#666">=</span>shijian(jinru,likai);
+</span></span><span style="display:flex;"><span>            num<span style="color:#666">++</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h1 id="stl">STL <a href="#stl" class="anchor">🔗</a></h1><p>本部分借鉴其他博主的文章
+<a href="https://blog.csdn.net/weixin_51797626/article/details/123317216" target="_blank" rel="noopener">STL详解与补充</a></p>
+<h2 id="set">set <a href="#set" class="anchor">🔗</a></h2><p>自动<strong>去重</strong>，<strong>排序</strong>，边输入边进行这种操作</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>set<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span> se;
+</span></span><span style="display:flex;"><span>set<span style="color:#666">&lt;</span>string<span style="color:#666">&gt;</span> se1;
+</span></span><span style="display:flex;"><span>set<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">long</span> <span style="color:#0b0;font-weight:bold">long</span><span style="color:#666">&gt;</span> se2;
+</span></span><span style="display:flex;"><span>set<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">&gt;</span> se3;
+</span></span><span style="display:flex;"><span>multiset<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span> see;  <span style="color:#080;font-style:italic">// 可以保存重复元素
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>...
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 不同类型
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>se.insert(<span style="color:#666">3</span>);  <span style="color:#080;font-style:italic">// 插入
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">if</span>(se.find(<span style="color:#666">4</span>)<span style="color:#666">!=</span>se.end())  <span style="color:#080;font-style:italic">// 要加限制条件，不然会报错
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	cout<span style="color:#666">&lt;&lt;</span><span style="color:#b44">&#34;find&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">else</span> cout<span style="color:#666">&lt;&lt;</span><span style="color:#b44">&#34;not find&#34;</span>;
+</span></span><span style="display:flex;"><span>se.find(<span style="color:#666">3</span>) <span style="color:#080;font-style:italic">// 返回的是迭代器（指针）
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>se.erase(<span style="color:#666">3</span>) <span style="color:#080;font-style:italic">// 删除这个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>see.count(<span style="color:#666">3</span>) <span style="color:#080;font-style:italic">// 返回元素出现的次数
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#a2f;font-weight:bold">auto</span> <span style="color:#a0a000">j</span> : se)  <span style="color:#080;font-style:italic">//遍历输出
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>{
+</span></span><span style="display:flex;"><span>	cout<span style="color:#666">&lt;&lt;</span>j<span style="color:#666">&lt;&lt;</span><span style="color:#b44">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="map">map <a href="#map" class="anchor">🔗</a></h2><p><strong>去重</strong>，<strong>排序</strong>
+与set类似，只是多了一个关键值</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>map<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span>,<span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span> mp;
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 关键字，关键值
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>multimap<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span>,<span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span> mpp; <span style="color:#080;font-style:italic">// 保存重复元素
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>mp.insert({<span style="color:#666">1</span>,<span style="color:#666">2</span>});  
+</span></span><span style="display:flex;"><span>mp[<span style="color:#666">1</span>]<span style="color:#666">=</span><span style="color:#666">2</span>;
+</span></span><span style="display:flex;"><span>mp.insert({<span style="color:#666">1</span>,<span style="color:#666">2</span>}); <span style="color:#080;font-style:italic">// 修改1对应的关键值
+</span></span></span></code></pre></div><h2 id="vector">vector <a href="#vector" class="anchor">🔗</a></h2><p>一个高级点的数组</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span> vec;
+</span></span><span style="display:flex;"><span>vec.push_back(<span style="color:#666">2</span>);  <span style="color:#080;font-style:italic">// 插入
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>vec.pop_back();  <span style="color:#080;font-style:italic">// 删除末尾的元素
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>vec.front();  <span style="color:#080;font-style:italic">// 返回第一个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>vec.erase(<span style="color:#666">2</span>);  <span style="color:#080;font-style:italic">// 删除指定元素
+</span></span></span></code></pre></div><h2 id="stack-栈">stack 栈 <a href="#stack-%e6%a0%88" class="anchor">🔗</a></h2><p><strong>先进后出</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>stack<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span> sta;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> t,n<span style="color:#666">=</span><span style="color:#666">3</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">0</span>;i<span style="color:#666">&lt;</span>n;i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	cin<span style="color:#666">&gt;&gt;</span>t;
+</span></span><span style="display:flex;"><span>	sta.push(t); <span style="color:#080;font-style:italic">// 插入
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">while</span>(sta.size())
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	cout<span style="color:#666">&lt;&lt;</span>sta.top()<span style="color:#666">&lt;&lt;</span><span style="color:#b44">&#34; &#34;</span>; <span style="color:#080;font-style:italic">// 输出最顶端元素
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	sta.pop();  <span style="color:#080;font-style:italic">// 删除最顶端元素
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
+</span></span></code></pre></div><h2 id="queue-普通队列">queue 普通队列 <a href="#queue-%e6%99%ae%e9%80%9a%e9%98%9f%e5%88%97" class="anchor">🔗</a></h2><p><strong>先进的放在前面</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>queue<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span> q;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> n; i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>		q.push(<span style="color:#666">3</span>); <span style="color:#080;font-style:italic">// 插入
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">while</span> (q.size())
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#0b0;font-weight:bold">int</span> t <span style="color:#666">=</span> q.front();
+</span></span><span style="display:flex;"><span>		q.pop();
+</span></span><span style="display:flex;"><span>		cout <span style="color:#666">&lt;&lt;</span> t <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span></code></pre></div><h2 id="deque-双端队列">deque 双端队列 <a href="#deque-%e5%8f%8c%e7%ab%af%e9%98%9f%e5%88%97" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>deque<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span> q;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">0</span>; i <span style="color:#666">&lt;</span> n; i<span style="color:#666">++</span>) {
+</span></span><span style="display:flex;"><span>		q.push_back(<span style="color:#666">3</span>);<span style="color:#080;font-style:italic">//放尾部
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>		q.push_front(<span style="color:#666">2</span>);<span style="color:#080;font-style:italic">//放前部
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	}
+</span></span><span style="display:flex;"><span>		
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">while</span> (q.size())
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#0b0;font-weight:bold">int</span> t <span style="color:#666">=</span> q.front(), g <span style="color:#666">=</span> q.back();
+</span></span><span style="display:flex;"><span>		q.pop_back();<span style="color:#080;font-style:italic">//删后部
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>		q.pop_front();<span style="color:#080;font-style:italic">//删前部
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>		cout <span style="color:#666">&lt;&lt;</span> t <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span></code></pre></div><h2 id="priority_queue-优先队列堆">priority_queue 优先队列、堆 <a href="#priority_queue-%e4%bc%98%e5%85%88%e9%98%9f%e5%88%97%e5%a0%86" class="anchor">🔗</a></h2><p><strong>自动排序</strong>
+<strong>默认大到小（大根堆）</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	priority_queue<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span>, vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span>, greater<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;&gt;</span> q1; 
+</span></span><span style="display:flex;"><span>	<span style="color:#080;font-style:italic">//greater是小根堆，从小到大排序
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	<span style="color:#080;font-style:italic">//把最小的放在最上面
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	priority_queue<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span>, vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;&gt;</span> q2;
+</span></span><span style="display:flex;"><span>	<span style="color:#080;font-style:italic">//默认是大根堆
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>	q1.push(<span style="color:#666">3</span>), q2.push(<span style="color:#666">2</span>); <span style="color:#080;font-style:italic">//插入
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">while</span> (q1.size())
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#0b0;font-weight:bold">int</span> t <span style="color:#666">=</span> q1.top();
+</span></span><span style="display:flex;"><span>		q1.pop();
+</span></span><span style="display:flex;"><span>		cout <span style="color:#666">&lt;&lt;</span> t <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span></code></pre></div><h1 id="高精度">高精度： <a href="#%e9%ab%98%e7%b2%be%e5%ba%a6" class="anchor">🔗</a></h1><h3 id="高精度乘法">高精度乘法： <a href="#%e9%ab%98%e7%b2%be%e5%ba%a6%e4%b9%98%e6%b3%95" class="anchor">🔗</a></h3><p><a href="https://www.luogu.com.cn/problem/P1303" target="_blank" rel="noopener">A*B Problem</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;bits/stdc++.h&gt;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span>string a1,b1;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> a[<span style="color:#666">10001</span>],b[<span style="color:#666">10001</span>],c[<span style="color:#666">10001</span>];
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    cin<span style="color:#666">&gt;&gt;</span>a1<span style="color:#666">&gt;&gt;</span>b1;
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> lena<span style="color:#666">=</span>a1.size(),lenb<span style="color:#666">=</span>b1.size(); 
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">1</span>;i<span style="color:#666">&lt;=</span>lena;i<span style="color:#666">++</span>) a[i]<span style="color:#666">=</span>a1[lena<span style="color:#666">-</span>i]<span style="color:#666">-</span><span style="color:#b44">&#39;0&#39;</span>;  <span style="color:#080;font-style:italic">//倒着输入
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> j<span style="color:#666">=</span><span style="color:#666">1</span>;j<span style="color:#666">&lt;=</span>lenb;j<span style="color:#666">++</span>) b[j]<span style="color:#666">=</span>b1[lenb<span style="color:#666">-</span>j]<span style="color:#666">-</span><span style="color:#b44">&#39;0&#39;</span>;  <span style="color:#080;font-style:italic">//倒着输入
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">1</span>;i<span style="color:#666">&lt;=</span>lenb;i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> j<span style="color:#666">=</span><span style="color:#666">1</span>;j<span style="color:#666">&lt;=</span>lena;j<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            c[i<span style="color:#666">+</span>j<span style="color:#666">-</span><span style="color:#666">1</span>]<span style="color:#666">+=</span>a[j]<span style="color:#666">*</span>b[i];  <span style="color:#080;font-style:italic">//错位相加
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">1</span>;i<span style="color:#666">&lt;=</span>lena<span style="color:#666">+</span>lenb;i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">if</span>(c[i]<span style="color:#666">&gt;</span><span style="color:#666">9</span>)  <span style="color:#080;font-style:italic">//大于9就要进位
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        {
+</span></span><span style="display:flex;"><span>            c[i<span style="color:#666">+</span><span style="color:#666">1</span>]<span style="color:#666">+=</span>c[i]<span style="color:#666">/</span><span style="color:#666">10</span>; 
+</span></span><span style="display:flex;"><span>            c[i]<span style="color:#666">%=</span><span style="color:#666">10</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> lenc<span style="color:#666">=</span>lena<span style="color:#666">+</span>lenb;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">while</span>(c[lenc]<span style="color:#666">==</span><span style="color:#666">0</span><span style="color:#666">&amp;&amp;</span>lenc<span style="color:#666">&gt;</span><span style="color:#666">1</span>) lenc<span style="color:#666">--</span>;  <span style="color:#080;font-style:italic">//去除前导零
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span>lenc;i<span style="color:#666">&gt;=</span><span style="color:#666">1</span>;i<span style="color:#666">--</span>) cout<span style="color:#666">&lt;&lt;</span>c[i];
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="高精度加法">高精度加法： <a href="#%e9%ab%98%e7%b2%be%e5%ba%a6%e5%8a%a0%e6%b3%95" class="anchor">🔗</a></h3><p><a href="https://www.luogu.com.cn/problem/P1601" target="_blank" rel="noopener">A+B Problem</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include&lt;iostream&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#include&lt;vector&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span>vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span> add(vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;&amp;</span>A,vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;&amp;</span>B)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span> c;
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> t<span style="color:#666">=</span><span style="color:#666">0</span>; <span style="color:#080;font-style:italic">//进位
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">0</span>;i<span style="color:#666">&lt;</span>A.size()<span style="color:#666">||</span>i<span style="color:#666">&lt;</span>B.size();i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">if</span>(i<span style="color:#666">&lt;</span>A.size()) t<span style="color:#666">+=</span>A[i];<span style="color:#080;font-style:italic">//A[i]这位有数 
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">if</span>(i<span style="color:#666">&lt;</span>B.size()) t<span style="color:#666">+=</span>B[i];<span style="color:#080;font-style:italic">//A[i]+B[i]+t
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        c.push_back(t<span style="color:#666">%</span><span style="color:#666">10</span>);<span style="color:#080;font-style:italic">//取余数加到这一位
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        t <span style="color:#666">/=</span><span style="color:#666">10</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span>(t) c.push_back(<span style="color:#666">1</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> c;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    string a,b;
+</span></span><span style="display:flex;"><span>    vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span>A,B;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#666">&gt;&gt;</span> a <span style="color:#666">&gt;&gt;</span> b;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span>a.size()<span style="color:#666">-</span><span style="color:#666">1</span>;i<span style="color:#666">&gt;=</span><span style="color:#666">0</span>;i<span style="color:#666">--</span>) A.push_back(a[i]<span style="color:#666">-</span><span style="color:#b44">&#39;0&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span>b.size()<span style="color:#666">-</span><span style="color:#666">1</span>;i<span style="color:#666">&gt;=</span><span style="color:#666">0</span>;i<span style="color:#666">--</span>) B.push_back(b[i]<span style="color:#666">-</span><span style="color:#b44">&#39;0&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">auto</span> c <span style="color:#666">=</span> add(A,B); <span style="color:#080;font-style:italic">// auto = vector&lt;int&gt; auto 是让编译器自己判断类型
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span>c.size()<span style="color:#666">-</span><span style="color:#666">1</span>;i<span style="color:#666">&gt;=</span><span style="color:#666">0</span>;i<span style="color:#666">--</span>) cout <span style="color:#666">&lt;&lt;</span> c[i];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="高精度除法">高精度除法： <a href="#%e9%ab%98%e7%b2%be%e5%ba%a6%e9%99%a4%e6%b3%95" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include&lt;iostream&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#include&lt;vector&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#include&lt;algorithm&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// A/b 余数是r
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span> div(vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;&amp;</span>A,<span style="color:#0b0;font-weight:bold">int</span> b,<span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&amp;</span>r)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span>c;
+</span></span><span style="display:flex;"><span>    r<span style="color:#666">=</span><span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span>A.size()<span style="color:#666">-</span><span style="color:#666">1</span>;i<span style="color:#666">&gt;=</span><span style="color:#666">0</span>;i<span style="color:#666">--</span>) 
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        r <span style="color:#666">=</span> r<span style="color:#666">*</span><span style="color:#666">10</span> <span style="color:#666">+</span> A[i];
+</span></span><span style="display:flex;"><span>        c.push_back(r<span style="color:#666">/</span>b);
+</span></span><span style="display:flex;"><span>        r <span style="color:#666">%=</span>b;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    reverse(c.begin(),c.end());
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">while</span>(c.size()<span style="color:#666">&gt;</span><span style="color:#666">1</span> <span style="color:#666">&amp;&amp;</span> c.back()<span style="color:#666">==</span><span style="color:#666">0</span>) c.pop_back();
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> c;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    string a;
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> b;
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> r;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#666">&gt;&gt;</span> a <span style="color:#666">&gt;&gt;</span> b;
+</span></span><span style="display:flex;"><span>    vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span>A;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span>a.size()<span style="color:#666">-</span><span style="color:#666">1</span>;i<span style="color:#666">&gt;=</span><span style="color:#666">0</span>;i<span style="color:#666">--</span>) A.push_back(a[i]<span style="color:#666">-</span><span style="color:#b44">&#39;0&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">auto</span> c <span style="color:#666">=</span> div(A,b,r);
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span>c.size()<span style="color:#666">-</span><span style="color:#666">1</span>;i<span style="color:#666">&gt;=</span><span style="color:#666">0</span>;i<span style="color:#666">--</span>) cout <span style="color:#666">&lt;&lt;</span> c[i];
+</span></span><span style="display:flex;"><span>    cout <span style="color:#666">&lt;&lt;</span> endl <span style="color:#666">&lt;&lt;</span> r <span style="color:#666">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="高精度减法">高精度减法： <a href="#%e9%ab%98%e7%b2%be%e5%ba%a6%e5%87%8f%e6%b3%95" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include&lt;iostream&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#include&lt;vector&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">bool</span> <span style="color:#00a000">cmp</span>(vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;&amp;</span>A,vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;&amp;</span>B)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span>(A.size()<span style="color:#666">!=</span>B.size()) <span style="color:#a2f;font-weight:bold">return</span> A.size()<span style="color:#666">&gt;</span>B.size();<span style="color:#080;font-style:italic">//首先判断位数是否相同，谁的位数大谁就大
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span>A.size()<span style="color:#666">-</span><span style="color:#666">1</span>;i<span style="color:#666">&gt;=</span><span style="color:#666">0</span>;i<span style="color:#666">--</span>) <span style="color:#080;font-style:italic">// 从高位向低位一个一个比较大小
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">if</span>(A[i]<span style="color:#666">!=</span>B[i])
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">return</span> A[i]<span style="color:#666">&gt;</span>B[i];
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#a2f">true</span>;<span style="color:#080;font-style:italic">//两数相同
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span>vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span> sub(vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;&amp;</span>A,vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;&amp;</span>B)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span> c;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">0</span>,t<span style="color:#666">=</span><span style="color:#666">0</span>;i<span style="color:#666">&lt;</span>A.size();i<span style="color:#666">++</span>) <span style="color:#080;font-style:italic">//t表示每一位的值，表示借位
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    {
+</span></span><span style="display:flex;"><span>        t <span style="color:#666">=</span> A[i]<span style="color:#666">-</span>t; <span style="color:#080;font-style:italic">// 原本 t = A[i]-B[i]-t; 需要判断B是否越界
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">if</span>(i<span style="color:#666">&lt;</span>B.size()) t<span style="color:#666">-=</span>B[i];<span style="color:#080;font-style:italic">//B[i]是否存在
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        c.push_back((t<span style="color:#666">+</span><span style="color:#666">10</span>)<span style="color:#666">%</span><span style="color:#666">10</span>); <span style="color:#080;font-style:italic">// 如果t&gt;=0就是t本身，如果t&lt;0就是t+10 
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">if</span>(t<span style="color:#666">&lt;</span><span style="color:#666">0</span>) t <span style="color:#666">=</span> <span style="color:#666">1</span>; <span style="color:#080;font-style:italic">//小于0就要往前借一位
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">else</span> t <span style="color:#666">=</span> <span style="color:#666">0</span>; <span style="color:#080;font-style:italic">// 不然的话就不用借位
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// 逆着输入的如果是123-120 则vector存的结果是300
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#080;font-style:italic">// pop_back()删掉最后一位
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">while</span>(c.size()<span style="color:#666">&gt;</span><span style="color:#666">1</span> <span style="color:#666">&amp;&amp;</span> c.back()<span style="color:#666">==</span><span style="color:#666">0</span>) c.pop_back(); <span style="color:#080;font-style:italic">//去掉前导0 300-&gt;30-&gt;3
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">return</span> c;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    string a,b;
+</span></span><span style="display:flex;"><span>    vector<span style="color:#666">&lt;</span><span style="color:#0b0;font-weight:bold">int</span><span style="color:#666">&gt;</span>A,B;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#666">&gt;&gt;</span> a <span style="color:#666">&gt;&gt;</span> b;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span>a.size()<span style="color:#666">-</span><span style="color:#666">1</span>;i<span style="color:#666">&gt;=</span><span style="color:#666">0</span>;i<span style="color:#666">--</span>) A.push_back(a[i]<span style="color:#666">-</span><span style="color:#b44">&#39;0&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span>b.size()<span style="color:#666">-</span><span style="color:#666">1</span>;i<span style="color:#666">&gt;=</span><span style="color:#666">0</span>;i<span style="color:#666">--</span>) B.push_back(b[i]<span style="color:#666">-</span><span style="color:#b44">&#39;0&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span>(cmp(A,B))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">auto</span> c <span style="color:#666">=</span> sub(A,B); <span style="color:#080;font-style:italic">// auto = vector&lt;int&gt; auto 是让编译器自己判断类型
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span>c.size()<span style="color:#666">-</span><span style="color:#666">1</span>;i<span style="color:#666">&gt;=</span><span style="color:#666">0</span>;i<span style="color:#666">--</span>) cout <span style="color:#666">&lt;&lt;</span> c[i];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34;-&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">auto</span> c <span style="color:#666">=</span> sub(B,A);
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span>c.size()<span style="color:#666">-</span><span style="color:#666">1</span>;i<span style="color:#666">&gt;=</span><span style="color:#666">0</span>;i<span style="color:#666">--</span>) cout <span style="color:#666">&lt;&lt;</span> c[i];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="前缀和与差分">前缀和与差分： <a href="#%e5%89%8d%e7%bc%80%e5%92%8c%e4%b8%8e%e5%b7%ae%e5%88%86" class="anchor">🔗</a></h1><p><strong>借鉴其他博主的文章：</strong>
+<a href="https://blog.csdn.net/weixin_45629285/article/details/111146240?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167512920716800180645076%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=167512920716800180645076&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-111146240-null-null.142%5Ev71%5Eone_line,201%5Ev4%5Eadd_ask&amp;utm_term=%E5%B7%AE%E5%88%86&amp;spm=1018.2226.3001.4187" target="_blank" rel="noopener">前缀和与差分详解</a></p>
+<h2 id="前缀和">前缀和： <a href="#%e5%89%8d%e7%bc%80%e5%92%8c" class="anchor">🔗</a></h2><h3 id="一维前缀和">一维前缀和： <a href="#%e4%b8%80%e7%bb%b4%e5%89%8d%e7%bc%80%e5%92%8c" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include&lt;iostream&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#include&lt;cstring&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#include&lt;cmath&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">int</span> N <span style="color:#666">=</span> <span style="color:#666">1e6</span><span style="color:#666">+</span><span style="color:#666">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> n,m;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> a[N],s[N];
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    ios<span style="color:#666">::</span>sync_with_stdio(<span style="color:#a2f">false</span>);<span style="color:#080;font-style:italic">// 提高cin，cout的速度（但是不能再使用scanf了）
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    cin <span style="color:#666">&gt;&gt;</span> n <span style="color:#666">&gt;&gt;</span> m;<span style="color:#080;font-style:italic">// n表示输入的个数，m表示测试的组数
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#080;font-style:italic">// 从1开始！！
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">1</span>;i<span style="color:#666">&lt;=</span>n;i<span style="color:#666">++</span>) cin <span style="color:#666">&gt;&gt;</span> a[i]; <span style="color:#080;font-style:italic">// 输入数组 
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">1</span>;i<span style="color:#666">&lt;=</span>n;i<span style="color:#666">++</span>) s[i] <span style="color:#666">=</span> s[i<span style="color:#666">-</span><span style="color:#666">1</span>] <span style="color:#666">+</span> a[i]; <span style="color:#080;font-style:italic">// 统计s[1]...s[n] **s[n]表示从1到n个数的和**
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#080;font-style:italic">// 前i个数的和=前i-1个数的和+第i个数
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">while</span>(m<span style="color:#666">--</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#0b0;font-weight:bold">int</span> l , r;<span style="color:#080;font-style:italic">// 从第l个数到第r个数的和
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        cin <span style="color:#666">&gt;&gt;</span> l <span style="color:#666">&gt;&gt;</span> r;
+</span></span><span style="display:flex;"><span>        cout <span style="color:#666">&lt;&lt;</span> s[r]<span style="color:#666">-</span>s[l<span style="color:#666">-</span><span style="color:#666">1</span>]; <span style="color:#080;font-style:italic">// 前r个数-前l-1个数
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="二维前缀和">二维前缀和 <a href="#%e4%ba%8c%e7%bb%b4%e5%89%8d%e7%bc%80%e5%92%8c" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> s[<span style="color:#666">50</span>][<span style="color:#666">50</span>],a[<span style="color:#666">50</span>][<span style="color:#666">50</span>];
+</span></span></code></pre></div><p>预处理：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>s[x][y] <span style="color:#666">=</span> s[x<span style="color:#666">-</span><span style="color:#666">1</span>][y] <span style="color:#666">+</span> s[x][y<span style="color:#666">-</span><span style="color:#666">1</span>] <span style="color:#666">-</span> s[x<span style="color:#666">-</span><span style="color:#666">1</span>][y<span style="color:#666">-</span><span style="color:#666">1</span>] <span style="color:#666">+</span> a[x][y];  <span style="color:#080;font-style:italic">// s 表示 从（1，1）到（x,y) 这个矩阵内所有元素的和
+</span></span></span></code></pre></div><p>求解（x1,y1）到（x2,y2）的元素和：</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>ans <span style="color:#666">=</span> s[x2][y2]<span style="color:#666">-</span>s[x1<span style="color:#666">-</span><span style="color:#666">1</span>][y2]<span style="color:#666">-</span>s[x2][y1<span style="color:#666">-</span><span style="color:#666">1</span>]<span style="color:#666">+</span>s[x1<span style="color:#666">-</span><span style="color:#666">1</span>][y1<span style="color:#666">-</span><span style="color:#666">1</span>];
+</span></span></code></pre></div><p><p class="markdown-image">
+  <img src="https://img-blog.csdnimg.cn/146506b1bb914e71a801d9074af6a008.png#pic_center" alt="二维前缀和"  />
+</p></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;bits/stdc++.h&gt;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> a[<span style="color:#666">50</span>][<span style="color:#666">50</span>],sum[<span style="color:#666">50</span>][<span style="color:#666">50</span>];
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> h,l;
+</span></span><span style="display:flex;"><span>	cin<span style="color:#666">&gt;&gt;</span>h<span style="color:#666">&gt;&gt;</span>l;
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">1</span>;i<span style="color:#666">&lt;=</span>h;i<span style="color:#666">++</span>)  <span style="color:#080;font-style:italic">// 从1开始！！
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> j<span style="color:#666">=</span><span style="color:#666">1</span>;j<span style="color:#666">&lt;=</span>l;j<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>		cin<span style="color:#666">&gt;&gt;</span>a[i][j];
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">1</span>;i<span style="color:#666">&lt;=</span>h;i<span style="color:#666">++</span>)  <span style="color:#080;font-style:italic">// 从1开始！！
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> j<span style="color:#666">=</span><span style="color:#666">1</span>;j<span style="color:#666">&lt;=</span>l;j<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>			sum[i][j] <span style="color:#666">=</span> sum[i<span style="color:#666">-</span><span style="color:#666">1</span>][j] <span style="color:#666">+</span> sum[i][j<span style="color:#666">-</span><span style="color:#666">1</span>] <span style="color:#666">-</span> sum[i<span style="color:#666">-</span><span style="color:#666">1</span>][j<span style="color:#666">-</span><span style="color:#666">1</span>] <span style="color:#666">+</span> a[i][j];
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> t;
+</span></span><span style="display:flex;"><span>	cin<span style="color:#666">&gt;&gt;</span>t;
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">while</span>(t<span style="color:#666">--</span>)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#0b0;font-weight:bold">int</span> x1,y1,x2,y2;
+</span></span><span style="display:flex;"><span>		cin<span style="color:#666">&gt;&gt;</span>x1<span style="color:#666">&gt;&gt;</span>y1<span style="color:#666">&gt;&gt;</span>x2<span style="color:#666">&gt;&gt;</span>y2;
+</span></span><span style="display:flex;"><span>		cout<span style="color:#666">&lt;&lt;</span>sum[x2][y2]<span style="color:#666">-</span>sum[x1<span style="color:#666">-</span><span style="color:#666">1</span>][y2]<span style="color:#666">-</span>sum[x2][y1<span style="color:#666">-</span><span style="color:#666">1</span>]<span style="color:#666">+</span>sum[x1<span style="color:#666">-</span><span style="color:#666">1</span>][y1<span style="color:#666">-</span><span style="color:#666">1</span>];
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="差分">差分： <a href="#%e5%b7%ae%e5%88%86" class="anchor">🔗</a></h2><h3 id="一维差分">一维差分： <a href="#%e4%b8%80%e7%bb%b4%e5%b7%ae%e5%88%86" class="anchor">🔗</a></h3><p><p class="markdown-image">
+  <img src="https://img-blog.csdnimg.cn/1e0529e5cfc446a3b6834f14a3e89829.png#pic_center" alt="在这里插入图片描述"  />
+</p></p>
+<p>给a数组中(l,r)的每一个数加上c，b数组为前缀和数组</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;bits/stdc++.h&gt;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;	
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> a[<span style="color:#666">100</span>],b[<span style="color:#666">100</span>];
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> n,m;
+</span></span><span style="display:flex;"><span>	cin<span style="color:#666">&gt;&gt;</span>n<span style="color:#666">&gt;&gt;</span>m;
+</span></span><span style="display:flex;"><span>	<span style="color:#080;font-style:italic">// 从1开始！！
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	<span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">1</span>;i<span style="color:#666">&lt;=</span>n;i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		cin<span style="color:#666">&gt;&gt;</span>a[i];
+</span></span><span style="display:flex;"><span>		b[i] <span style="color:#666">=</span> a[i] <span style="color:#666">-</span> a[i<span style="color:#666">-</span><span style="color:#666">1</span>];  <span style="color:#080;font-style:italic">// 求出差分数组
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">while</span>(m<span style="color:#666">--</span>)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#0b0;font-weight:bold">int</span> l,r,c;
+</span></span><span style="display:flex;"><span>		cin<span style="color:#666">&gt;&gt;</span>l<span style="color:#666">&gt;&gt;</span>r<span style="color:#666">&gt;&gt;</span>c;
+</span></span><span style="display:flex;"><span>		b[l]<span style="color:#666">+=</span>c,b[r<span style="color:#666">+</span><span style="color:#666">1</span>]<span style="color:#666">-=</span>c;  <span style="color:#080;font-style:italic">//进行操作
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">1</span>;i<span style="color:#666">&lt;=</span>n;i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		b[i]<span style="color:#666">+=</span>b[i<span style="color:#666">-</span><span style="color:#666">1</span>];  <span style="color:#080;font-style:italic">// 求出前缀和数组
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>		cout<span style="color:#666">&lt;&lt;</span>b[i]<span style="color:#666">&lt;&lt;</span><span style="color:#b44">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="二维差分">二维差分： <a href="#%e4%ba%8c%e7%bb%b4%e5%b7%ae%e5%88%86" class="anchor">🔗</a></h3><p>a数组为b数组的前缀和数组
+对b数组的b[i][j]的修改，会影响到a数组中从a[i][j]及往后的每一个数
+<p class="markdown-image">
+  <img src="https://img-blog.csdnimg.cn/c8ad4a30e06c4a1eacec55da8411e12e.png#pic_center" alt="在这里插入图片描述"  />
+</p></p>
+<p><p class="markdown-image">
+  <img src="https://img-blog.csdnimg.cn/70a2a073af0b4873a88bd70e851090ce.png#pic_center" alt="在这里插入图片描述"  />
+</p></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;bits/stdc++.h&gt;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> a[<span style="color:#666">100</span>][<span style="color:#666">100</span>], b[<span style="color:#666">100</span>][<span style="color:#666">100</span>];
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> n, m, t;
+</span></span><span style="display:flex;"><span>	cin <span style="color:#666">&gt;&gt;</span> n <span style="color:#666">&gt;&gt;</span> m <span style="color:#666">&gt;&gt;</span> t;
+</span></span><span style="display:flex;"><span>	<span style="color:#080;font-style:italic">//从1开始！！
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	<span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">1</span>; i <span style="color:#666">&lt;=</span> n; i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> j <span style="color:#666">=</span> <span style="color:#666">1</span>; j <span style="color:#666">&lt;=</span> m; j<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>			cin <span style="color:#666">&gt;&gt;</span> a[i][j];
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">1</span>; i <span style="color:#666">&lt;=</span> n; i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> j <span style="color:#666">=</span> <span style="color:#666">1</span>; j <span style="color:#666">&lt;=</span> m; j<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>			b[i][j] <span style="color:#666">=</span> a[i][j] <span style="color:#666">-</span> a[i <span style="color:#666">-</span> <span style="color:#666">1</span>][j] <span style="color:#666">-</span> a[i][j <span style="color:#666">-</span> <span style="color:#666">1</span>] <span style="color:#666">+</span> a[i <span style="color:#666">-</span> <span style="color:#666">1</span>][j <span style="color:#666">-</span> <span style="color:#666">1</span>];
+</span></span><span style="display:flex;"><span>			<span style="color:#080;font-style:italic">// 构造差分数组， 前缀和的逆运算
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">while</span> (t<span style="color:#666">--</span>)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#0b0;font-weight:bold">int</span> x1, y1, x2, y2, c;
+</span></span><span style="display:flex;"><span>		cin <span style="color:#666">&gt;&gt;</span> x1 <span style="color:#666">&gt;&gt;</span> y1 <span style="color:#666">&gt;&gt;</span> x2 <span style="color:#666">&gt;&gt;</span> y2 <span style="color:#666">&gt;&gt;</span> c;
+</span></span><span style="display:flex;"><span>		<span style="color:#080;font-style:italic">//进行加c
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>		b[x1][y1] <span style="color:#666">+=</span> c;
+</span></span><span style="display:flex;"><span>		b[x2 <span style="color:#666">+</span> <span style="color:#666">1</span>][y1] <span style="color:#666">-=</span> c;
+</span></span><span style="display:flex;"><span>		b[x1][y2 <span style="color:#666">+</span> <span style="color:#666">1</span>] <span style="color:#666">-=</span> c;
+</span></span><span style="display:flex;"><span>		b[x2 <span style="color:#666">+</span> <span style="color:#666">1</span>][y2 <span style="color:#666">+</span> <span style="color:#666">1</span>] <span style="color:#666">+=</span> c;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">1</span>; i <span style="color:#666">&lt;=</span> n; i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> j <span style="color:#666">=</span> <span style="color:#666">1</span>; j <span style="color:#666">&lt;=</span> m; j<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>		b[i][j] <span style="color:#666">=</span> b[i][j]<span style="color:#666">+</span>b[i<span style="color:#666">-</span><span style="color:#666">1</span>][j]<span style="color:#666">+</span>b[i][j<span style="color:#666">-</span><span style="color:#666">1</span>]<span style="color:#666">-</span>b[i<span style="color:#666">-</span><span style="color:#666">1</span>][j<span style="color:#666">-</span><span style="color:#666">1</span>];
+</span></span><span style="display:flex;"><span>		<span style="color:#080;font-style:italic">// 构造前缀和数组
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> <span style="color:#666">1</span>; i <span style="color:#666">&lt;=</span> n; i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> j <span style="color:#666">=</span> <span style="color:#666">1</span>; j <span style="color:#666">&lt;=</span> m; j<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>			cout <span style="color:#666">&lt;&lt;</span> b[i][j] <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>		cout <span style="color:#666">&lt;&lt;</span> endl;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="指针">指针： <a href="#%e6%8c%87%e9%92%88" class="anchor">🔗</a></h1><p><a href="https://blog.csdn.net/m0_62870588/article/details/123794933?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167521778516800192248166%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=167521778516800192248166&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-2-123794933-null-null.142%5Ev72%5Einsert_down3,201%5Ev4%5Eadd_ask&amp;utm_term=%E6%8C%87%E9%92%88c%2b%2b&amp;spm=1018.2226.3001.4187" target="_blank" rel="noopener">指针详解</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;bits/stdc++.h&gt;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">int</span> num <span style="color:#666">=</span> <span style="color:#666">4</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> num11 <span style="color:#666">=</span> <span style="color:#666">7</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">int</span> <span style="color:#666">*</span>p1 <span style="color:#666">=</span> <span style="color:#666">&amp;</span>num;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#a2f;font-weight:bold">const</span> <span style="color:#666">*</span>p2 <span style="color:#666">=</span> <span style="color:#666">&amp;</span>num;
+</span></span><span style="display:flex;"><span>	<span style="color:#080;font-style:italic">// 上面两个等价，
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	<span style="color:#080;font-style:italic">//*p1 = 2; 报错 // 不能直接修改p1指向的值（const)
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	<span style="color:#0b0;font-weight:bold">int</span> <span style="color:#666">*</span><span style="color:#a2f;font-weight:bold">const</span> p3 <span style="color:#666">=</span> <span style="color:#666">&amp;</span>num11;  <span style="color:#080;font-style:italic">// const 指针(指向int类型而非const类型) ， 不能修改指向的地址
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	<span style="color:#0b0;font-weight:bold">int</span> num2 <span style="color:#666">=</span> <span style="color:#666">3</span>;
+</span></span><span style="display:flex;"><span>	p1 <span style="color:#666">=</span> <span style="color:#666">&amp;</span>num2; <span style="color:#080;font-style:italic">// 可以修改p1指向的指针从而修改p1的值
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	p2 <span style="color:#666">=</span> <span style="color:#666">&amp;</span>num2;
+</span></span><span style="display:flex;"><span>	<span style="color:#080;font-style:italic">// p3 = &amp;num2; // 会报错
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	cout<span style="color:#666">&lt;&lt;*</span>p1<span style="color:#666">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>	cout<span style="color:#666">&lt;&lt;*</span>p2<span style="color:#666">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>	<span style="color:#080;font-style:italic">//cout&lt;&lt;*p3&lt;&lt;endl;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
+</span></span></code></pre></div><h1 id="数组与指针">数组与指针： <a href="#%e6%95%b0%e7%bb%84%e4%b8%8e%e6%8c%87%e9%92%88" class="anchor">🔗</a></h1><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>a[<span style="color:#666">3</span>][<span style="color:#666">1</span>] <span style="color:#666">=</span> <span style="color:#666">*</span>(a[<span style="color:#666">3</span>]<span style="color:#666">+</span><span style="color:#666">1</span>) <span style="color:#666">=</span> <span style="color:#666">*</span>(<span style="color:#666">*</span>(a<span style="color:#666">+</span><span style="color:#666">3</span>)<span style="color:#666">+</span><span style="color:#666">1</span>)
+</span></span><span style="display:flex;"><span>a[<span style="color:#666">3</span>] <span style="color:#666">=</span> <span style="color:#666">*</span>(a<span style="color:#666">+</span><span style="color:#666">3</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="">等价关系：</span><span style="color:#666">&amp;</span>a[<span style="color:#666">0</span>][<span style="color:#666">0</span>] <span style="color:#666">==</span> a[<span style="color:#666">0</span>] <span style="color:#666">==</span> <span style="color:#666">*</span>a
+</span></span></code></pre></div><h1 id="一些算法">一些算法： <a href="#%e4%b8%80%e4%ba%9b%e7%ae%97%e6%b3%95" class="anchor">🔗</a></h1><h3 id="导弹拦截问题">导弹拦截问题： <a href="#%e5%af%bc%e5%bc%b9%e6%8b%a6%e6%88%aa%e9%97%ae%e9%a2%98" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include&lt;iostream&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> n,a[<span style="color:#666">105</span>],b[<span style="color:#666">105</span>],ans<span style="color:#666">=</span><span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span>    cin<span style="color:#666">&gt;&gt;</span>n;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">1</span>;i<span style="color:#666">&lt;=</span>n;i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        cin<span style="color:#666">&gt;&gt;</span>a[i];
+</span></span><span style="display:flex;"><span>        b[i]<span style="color:#666">=</span><span style="color:#666">1</span>;<span style="color:#080;font-style:italic">//自身的长度
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> j<span style="color:#666">=</span><span style="color:#666">1</span>;j<span style="color:#666">&lt;</span>i;j<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#a2f;font-weight:bold">if</span>(a[j]<span style="color:#666">&lt;=</span>a[i]<span style="color:#666">&amp;&amp;</span>b[j]<span style="color:#666">&gt;=</span>b[i]) <span style="color:#080;font-style:italic">// 之前的数比现在的数小，之前的数对应的序列长度大于现在的数对应的序列长度
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>            b[i]<span style="color:#666">=</span>b[j]<span style="color:#666">+</span><span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        ans<span style="color:#666">=</span>max(ans,b[i]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout<span style="color:#666">&lt;&lt;</span>ans;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="找最大公约数辗转相除法">找最大公约数（辗转相除法） <a href="#%e6%89%be%e6%9c%80%e5%a4%a7%e5%85%ac%e7%ba%a6%e6%95%b0%e8%be%97%e8%bd%ac%e7%9b%b8%e9%99%a4%e6%b3%95" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include&lt;bits/stdc++.h&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// int gcd(int a,int b)
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// {
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">//     if(b==0) return a;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">//     或者if(a%b==0) return b;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">//     return gcd(b,a%b);
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// }
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> m,n;
+</span></span><span style="display:flex;"><span>    cin<span style="color:#666">&gt;&gt;</span>m<span style="color:#666">&gt;&gt;</span>n;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span>(m<span style="color:#666">&lt;</span>n) swap(m,n);
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> r<span style="color:#666">=</span>m<span style="color:#666">%</span>n; <span style="color:#080;font-style:italic">//辗转相除法 // r = m-n 辗转相减法
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">while</span>(r<span style="color:#666">&gt;</span><span style="color:#666">0</span>)    
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        m <span style="color:#666">=</span> n;
+</span></span><span style="display:flex;"><span>        n <span style="color:#666">=</span> r;   <span style="color:#080;font-style:italic">// 加上保证是大的减小的 //if(m&lt;n) swap(m,n);
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        r <span style="color:#666">=</span> m<span style="color:#666">%</span>n; <span style="color:#080;font-style:italic">//r=m-n;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    }
+</span></span><span style="display:flex;"><span>    cout<span style="color:#666">&lt;&lt;</span>n;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="二维矩阵顺逆时针旋转">二维矩阵顺/逆时针旋转 <a href="#%e4%ba%8c%e7%bb%b4%e7%9f%a9%e9%98%b5%e9%a1%ba%e9%80%86%e6%97%b6%e9%92%88%e6%97%8b%e8%bd%ac" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> a[<span style="color:#666">510</span>][<span style="color:#666">510</span>], b[<span style="color:#666">510</span>][<span style="color:#666">510</span>];  <span style="color:#080;font-style:italic">//b数组作为临时数组
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">shun</span>(<span style="color:#0b0;font-weight:bold">int</span> x, <span style="color:#0b0;font-weight:bold">int</span> y, <span style="color:#0b0;font-weight:bold">int</span> r)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> x <span style="color:#666">-</span> r; i <span style="color:#666">&lt;=</span> x <span style="color:#666">+</span> r; i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> j <span style="color:#666">=</span> y <span style="color:#666">-</span> r; j <span style="color:#666">&lt;=</span> y <span style="color:#666">+</span> r; j<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>			b[x <span style="color:#666">-</span> y <span style="color:#666">+</span> j][x <span style="color:#666">+</span> y <span style="color:#666">-</span> i] <span style="color:#666">=</span> a[i][j]; <span style="color:#080;font-style:italic">////
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> x <span style="color:#666">-</span> r; i <span style="color:#666">&lt;=</span> x <span style="color:#666">+</span> r; i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> j <span style="color:#666">=</span> y <span style="color:#666">-</span> r; j <span style="color:#666">&lt;=</span> y <span style="color:#666">+</span> r; j<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>			a[i][j] <span style="color:#666">=</span> b[i][j];
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">ni</span>(<span style="color:#0b0;font-weight:bold">int</span> x, <span style="color:#0b0;font-weight:bold">int</span> y, <span style="color:#0b0;font-weight:bold">int</span> r)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> x <span style="color:#666">-</span> r; i <span style="color:#666">&lt;=</span> x <span style="color:#666">+</span> r; i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> j <span style="color:#666">=</span> y <span style="color:#666">-</span> r; j <span style="color:#666">&lt;=</span> y <span style="color:#666">+</span> r; j<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>			b[x <span style="color:#666">+</span> y <span style="color:#666">-</span> j][y <span style="color:#666">-</span> x <span style="color:#666">+</span> i] <span style="color:#666">=</span> a[i][j];  <span style="color:#080;font-style:italic">////
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> i <span style="color:#666">=</span> x <span style="color:#666">-</span> r; i <span style="color:#666">&lt;=</span> x <span style="color:#666">+</span> r; i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">for</span> (<span style="color:#0b0;font-weight:bold">int</span> j <span style="color:#666">=</span> y <span style="color:#666">-</span> r; j <span style="color:#666">&lt;=</span> y <span style="color:#666">+</span> r; j<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>			a[i][j] <span style="color:#666">=</span> b[i][j];
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="进制转换">进制转换： <a href="#%e8%bf%9b%e5%88%b6%e8%bd%ac%e6%8d%a2" class="anchor">🔗</a></h3><h4 id="十六进制转二进制">十六进制转二进制: <a href="#%e5%8d%81%e5%85%ad%e8%bf%9b%e5%88%b6%e8%bd%ac%e4%ba%8c%e8%bf%9b%e5%88%b6" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include&lt;bits/stdc++.h&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    string s,t;
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> num;
+</span></span><span style="display:flex;"><span>    cin<span style="color:#666">&gt;&gt;</span>s;
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">0</span>;i<span style="color:#666">&lt;</span>s.size();i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">if</span>(s[i]<span style="color:#666">&gt;=</span><span style="color:#b44">&#39;0&#39;</span><span style="color:#666">&amp;&amp;</span>s[i]<span style="color:#666">&lt;=</span><span style="color:#b44">&#39;9&#39;</span>) num<span style="color:#666">=</span>s[i]<span style="color:#666">-</span><span style="color:#b44">&#39;0&#39;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">else</span> num<span style="color:#666">=</span>s[i]<span style="color:#666">-</span><span style="color:#b44">&#39;A&#39;</span><span style="color:#666">+</span><span style="color:#666">10</span>; <span style="color:#080;font-style:italic">// 注意是+10
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        <span style="color:#a2f;font-weight:bold">while</span>(num<span style="color:#666">&gt;</span><span style="color:#666">0</span>)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            t<span style="color:#666">+=</span>num<span style="color:#666">%</span><span style="color:#666">2</span><span style="color:#666">+</span><span style="color:#b44">&#39;0&#39;</span>;
+</span></span><span style="display:flex;"><span>            num<span style="color:#666">/=</span><span style="color:#666">2</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">while</span>(t.size()<span style="color:#666">&lt;</span><span style="color:#666">4</span>) t<span style="color:#666">+=</span><span style="color:#b44">&#39;0&#39;</span>;
+</span></span><span style="display:flex;"><span>        reverse(t.begin(),t.end());
+</span></span><span style="display:flex;"><span>        cout<span style="color:#666">&lt;&lt;</span>t;
+</span></span><span style="display:flex;"><span>        t<span style="color:#666">=</span><span style="color:#b44">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="十进制转二进制">十进制转二进制： <a href="#%e5%8d%81%e8%bf%9b%e5%88%b6%e8%bd%ac%e4%ba%8c%e8%bf%9b%e5%88%b6" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include</span> <span style="color:#080">&lt;bits/stdc++.h&gt;</span><span style="color:#080">
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> a;
+</span></span><span style="display:flex;"><span>	cin<span style="color:#666">&gt;&gt;</span>a;
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> b[<span style="color:#666">150</span>];
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> num<span style="color:#666">=</span><span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">while</span>(a)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		b[num<span style="color:#666">++</span>]<span style="color:#666">=</span>a<span style="color:#666">%</span><span style="color:#666">2</span>;
+</span></span><span style="display:flex;"><span>		a<span style="color:#666">/=</span><span style="color:#666">2</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span>num<span style="color:#666">-</span><span style="color:#666">1</span>;i<span style="color:#666">&gt;=</span><span style="color:#666">0</span>;i<span style="color:#666">--</span>) cout<span style="color:#666">&lt;&lt;</span>b[i];
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="递归转进制">递归转进制： <a href="#%e9%80%92%e5%bd%92%e8%bd%ac%e8%bf%9b%e5%88%b6" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include&lt;iostream&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#include&lt;cmath&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080">#include&lt;iomanip&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">dev_to_seventh</span>(<span style="color:#0b0;font-weight:bold">int</span> a)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span>(a<span style="color:#666">==</span><span style="color:#666">0</span>) <span style="color:#a2f;font-weight:bold">return</span> ;
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">// 转多少进制就除几
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    dev_to_seventh(a<span style="color:#666">/</span><span style="color:#666">7</span>); <span style="color:#080;font-style:italic">// 递归转七进制
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    cout <span style="color:#666">&lt;&lt;</span> a<span style="color:#666">%</span><span style="color:#666">7</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> n;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#666">&gt;&gt;</span> n;
+</span></span><span style="display:flex;"><span>    dev_to_seventh(n);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="浮点数转二进制">浮点数转二进制： <a href="#%e6%b5%ae%e7%82%b9%e6%95%b0%e8%bd%ac%e4%ba%8c%e8%bf%9b%e5%88%b6" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include&lt;iostream&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 整数部分
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">dev_to_bin</span>(<span style="color:#0b0;font-weight:bold">int</span> a)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span>(a<span style="color:#666">==</span><span style="color:#666">0</span>) <span style="color:#a2f;font-weight:bold">return</span>;
+</span></span><span style="display:flex;"><span>    dev_to_bin(a<span style="color:#666">/</span><span style="color:#666">2</span>);
+</span></span><span style="display:flex;"><span>    cout <span style="color:#666">&lt;&lt;</span> a<span style="color:#666">%</span><span style="color:#666">2</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">// 小数部分
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">float_to_bin</span>(<span style="color:#0b0;font-weight:bold">double</span> a)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">while</span>(a)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        a<span style="color:#666">*=</span><span style="color:#666">2</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">if</span>(a<span style="color:#666">&gt;=</span><span style="color:#666">1</span>) cout <span style="color:#666">&lt;&lt;</span> <span style="color:#666">1</span>,a<span style="color:#666">-=</span><span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">else</span> cout <span style="color:#666">&lt;&lt;</span> <span style="color:#666">0</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">double</span> n;
+</span></span><span style="display:flex;"><span>    cin <span style="color:#666">&gt;&gt;</span> n;
+</span></span><span style="display:flex;"><span>    <span style="color:#0b0;font-weight:bold">int</span> a <span style="color:#666">=</span> n;
+</span></span><span style="display:flex;"><span>    dev_to_bin(a);
+</span></span><span style="display:flex;"><span>    cout <span style="color:#666">&lt;&lt;</span> <span style="color:#b44">&#39;.&#39;</span>;
+</span></span><span style="display:flex;"><span>    float_to_bin(n<span style="color:#666">-</span>a);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="dfs">DFS: <a href="#dfs" class="anchor">🔗</a></h3><h4 id="全排列问题">全排列问题： <a href="#%e5%85%a8%e6%8e%92%e5%88%97%e9%97%ae%e9%a2%98" class="anchor">🔗</a></h4><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include&lt;bits/stdc++.h&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> n,a[<span style="color:#666">15</span>],book[<span style="color:#666">15</span>];
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">dfs</span>(<span style="color:#0b0;font-weight:bold">int</span> step) <span style="color:#080;font-style:italic">// step 表示第几个位置
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span>(step<span style="color:#666">==</span>n<span style="color:#666">+</span><span style="color:#666">1</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">1</span>;i<span style="color:#666">&lt;=</span>n;i<span style="color:#666">++</span>) cout<span style="color:#666">&lt;&lt;</span>setw(<span style="color:#666">5</span>)<span style="color:#666">&lt;&lt;</span>a[i];
+</span></span><span style="display:flex;"><span>        cout<span style="color:#666">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">return</span> ;  <span style="color:#080;font-style:italic">//返回上一级dfs
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">1</span>;i<span style="color:#666">&lt;=</span>n;i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#a2f;font-weight:bold">if</span>(book[i]<span style="color:#666">==</span><span style="color:#666">0</span>)  <span style="color:#080;font-style:italic">//如果这个数还没有被使用过
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        {
+</span></span><span style="display:flex;"><span>            a[step] <span style="color:#666">=</span> i;
+</span></span><span style="display:flex;"><span>            book[i] <span style="color:#666">=</span> <span style="color:#666">1</span>;
+</span></span><span style="display:flex;"><span>            dfs(step<span style="color:#666">+</span><span style="color:#666">1</span>);
+</span></span><span style="display:flex;"><span>            book[i] <span style="color:#666">=</span> <span style="color:#666">0</span>;  <span style="color:#080;font-style:italic">//把上一个返回的book[i]设为0
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">return</span> ; <span style="color:#080;font-style:italic">//退出dfs函数
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    cin<span style="color:#666">&gt;&gt;</span>n;
+</span></span><span style="display:flex;"><span>    dfs(<span style="color:#666">1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="类基本概念">类基本概念： <a href="#%e7%b1%bb%e5%9f%ba%e6%9c%ac%e6%a6%82%e5%bf%b5" class="anchor">🔗</a></h1><h3 id="定义语法">定义语法： <a href="#%e5%ae%9a%e4%b9%89%e8%af%ad%e6%b3%95" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> <span style="">类型名</span><span style="color:#00f">A</span>{
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span>  <span style="">数据成员</span><span style="color:#666">+</span><span style="">成员函数（成员函数为主）</span>
+</span></span><span style="display:flex;"><span>  <span style="">四个可缺省的成员函数</span><span style="color:#666">-</span><span style="">重要的</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#666">1</span>) <span style="">无参构造</span>  A(); <span style="color:#080;font-style:italic">//实际工作构造函数可以重载，形参个数可以调整
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  <span style="">自定义构造常规：</span>
+</span></span><span style="display:flex;"><span>  A(<span style="color:#0b0;font-weight:bold">int</span> xv<span style="color:#666">=</span><span style="color:#666">0</span>,<span style="color:#0b0;font-weight:bold">int</span> yv<span style="color:#666">=</span><span style="color:#666">0</span>); <span style="color:#080;font-style:italic">//A obj1,obj2(2),obj3(3,4);
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  <span style="color:#080;font-style:italic">//写一个除无参以外的构造函数后（包括拷贝构造），默认无参就不再提供
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  <span style="color:#666">2</span>) <span style="">拷贝构造</span> A(<span style="color:#a2f;font-weight:bold">const</span> A<span style="color:#666">&amp;</span>); <span style="color:#080;font-style:italic">//被构造的对象无空间的
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  <span style="color:#666">3</span>) <span style="">赋值重载</span> A<span style="color:#666">&amp;</span> <span style="color:#a2f;font-weight:bold">operator</span><span style="color:#666">=</span>(<span style="color:#a2f;font-weight:bold">const</span> A<span style="color:#666">&amp;</span>); <span style="color:#080;font-style:italic">//赋值的返回类型可以根据实际使用调整
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  <span style="color:#080;font-style:italic">//被赋值的对象（左值）是一个已经构造完毕的对象
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  <span style="color:#666">4</span>) <span style="">析构</span> <span style="color:#666">~</span>A(); <span style="color:#080;font-style:italic">//跟构造一样，无返回类型，名字同类型名，无参，无重载，
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  <span style="color:#080;font-style:italic">//ex1这样的类都不需要显示的写析构
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">private</span><span style="color:#666">:</span> (<span style="">可缺省）</span>
+</span></span><span style="display:flex;"><span>  <span style="">数据成员</span><span style="color:#666">+</span><span style="">成员函数（数据成员为主）</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0b0;font-weight:bold">int</span> x,y;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="">拓展：</span>
+</span></span><span style="display:flex;"><span><span style="color:#666">1</span><span style="">、</span>ex2这样的类型需要理解重写工作内容<span style="">，所有和动态空间相关的工作需要自己处理</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">A</span>{
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span>  A(){ x<span style="color:#666">=</span><span style="color:#a2f">NULL</span><span style="">；</span>}
+</span></span><span style="display:flex;"><span>  A(<span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">char</span> <span style="color:#666">*</span> xstring){
+</span></span><span style="display:flex;"><span>    x<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">new</span> <span style="color:#0b0;font-weight:bold">char</span>[strlen(xtring)<span style="color:#666">+</span><span style="color:#666">1</span>];
+</span></span><span style="display:flex;"><span>    strcpy(x,xstring);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  A(<span style="color:#a2f;font-weight:bold">const</span> A<span style="color:#666">&amp;</span> other){
+</span></span><span style="display:flex;"><span>    x<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">new</span> <span style="color:#0b0;font-weight:bold">char</span>[strlen(other.x)<span style="color:#666">+</span><span style="color:#666">1</span>];
+</span></span><span style="display:flex;"><span>    strcpy(x,other.x);
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span> A<span style="color:#666">&amp;</span> <span style="color:#a2f;font-weight:bold">operator</span><span style="color:#666">=</span>(<span style="color:#a2f;font-weight:bold">const</span> A<span style="color:#666">&amp;</span> right){ 
+</span></span><span style="display:flex;"><span>   <span style="color:#a2f;font-weight:bold">if</span>(<span style="color:#a2f;font-weight:bold">this</span><span style="color:#666">!=&amp;</span>right){  <span style="color:#080;font-style:italic">//自赋值  aobj=aobj；
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>      <span style="color:#a2f;font-weight:bold">if</span>(x) <span style="color:#a2f;font-weight:bold">delete</span> x;
+</span></span><span style="display:flex;"><span>     x<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">new</span> <span style="color:#0b0;font-weight:bold">char</span>[strlen(right.x)<span style="color:#666">+</span><span style="color:#666">1</span>];
+</span></span><span style="display:flex;"><span>     strcpy(x,right.x);
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>   <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">*</span><span style="color:#a2f;font-weight:bold">this</span>;
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#666">~</span>A(){
+</span></span><span style="display:flex;"><span>    <span style="color:#a2f;font-weight:bold">if</span>(x) <span style="color:#a2f;font-weight:bold">delete</span> []x;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">private</span><span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0b0;font-weight:bold">char</span><span style="color:#666">*</span>  x;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>A aobj, <span style="color:#666">*</span>p, bobj(aobj);
+</span></span><span style="display:flex;"><span>p<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">new</span> A;
+</span></span></code></pre></div><h3 id="类的使用">类的使用 <a href="#%e7%b1%bb%e7%9a%84%e4%bd%bf%e7%94%a8" class="anchor">🔗</a></h3><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">A</span>{
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="">：</span>
+</span></span><span style="display:flex;"><span>A<span style="">（</span><span style="color:#0b0;font-weight:bold">int</span> xv<span style="color:#666">=</span><span style="color:#666">0</span>,<span style="color:#0b0;font-weight:bold">int</span> yv<span style="color:#666">=</span><span style="color:#666">0</span><span style="">）</span><span style="color:#666">:</span>x(xv),y(yv){}
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">private</span><span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> x,y;
+</span></span><span style="display:flex;"><span>}<span style="">；</span>
+</span></span><span style="display:flex;"><span><span style="">常规对象声明：找到声明对应的构造函数</span>
+</span></span><span style="display:flex;"><span>A  obj<span style="">；</span><span style="color:#080;font-style:italic">//无参
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>A  obj<span style="">（</span><span style="color:#666">2</span>,<span style="color:#666">3</span>) ; <span style="color:#080;font-style:italic">//带参，根据参数的个数去匹配对应的重载函数
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>A  aobj<span style="">（</span>bobj<span style="">）</span>; <span style="color:#080;font-style:italic">//拷贝构造   
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>A  aobj<span style="color:#666">=</span>bobj; <span style="color:#080;font-style:italic">//这里不是使用赋值，使用的是拷贝构造
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">//构造函数隐含的使用
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#666">1</span><span style="">）</span> <span style="">拷贝构造另外两种使用场景：形参是类类型，返回类型是类类型</span>
+</span></span><span style="display:flex;"><span> A  fun(A x<span style="">）；</span>
+</span></span><span style="display:flex;"><span><span style="color:#666">2</span><span style="">）动态对象的申请</span>
+</span></span><span style="display:flex;"><span>A <span style="color:#666">*</span>p<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">new</span> A; <span style="color:#080;font-style:italic">//无参构造
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>A <span style="color:#666">*</span>p<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">new</span> A[<span style="color:#666">3</span>]; <span style="color:#080;font-style:italic">//全部是无参构造   同时理解对象数组的定义构造 A  xarray[3];
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>A <span style="color:#666">*</span>p<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">new</span> A[<span style="color:#666">3</span>]{A(<span style="color:#666">3</span>)};<span style="color:#080;font-style:italic">//1个带参，其余无参，同理数组
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#666">3</span>)<span style="">类型转换（其他类型向定义类型隐式类型转换）</span>
+</span></span><span style="display:flex;"><span>A obj; <span style="color:#080;font-style:italic">//无参构造
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>obj<span style="color:#666">=</span><span style="color:#666">3</span>;<span style="color:#080;font-style:italic">// 先3使用带1个参数的构造函数构造临时对象，使用赋值重载，再析构临时对象
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">//所有需要这样隐式类型转换的地方 --&gt; 运算符重载的计算使用 ， c1+3
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">//析构的使用
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="">一般情况下，析构自动调用</span><span style="color:#666">-</span> <span style="">作用域结束位置</span>
+</span></span><span style="display:flex;"><span><span style="">同层作用域，析构和构造顺序相反；</span>
+</span></span><span style="display:flex;"><span><span style="">跨作用域，作用域优先；</span>
+</span></span><span style="display:flex;"><span><span style="">动态对象，</span><span style="color:#a2f;font-weight:bold">delete</span> <span style="">优先</span>
+</span></span><span style="display:flex;"><span> A  fun(A x<span style="">）</span>{
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">return</span> x;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    A  obj1(<span style="color:#666">3</span>),obj2(obj1),obj3; <span style="color:#080;font-style:italic">//构造顺序同声明顺序：obj1,obj2,obj3
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    A <span style="color:#666">*</span>p1,<span style="color:#666">*</span>p2; 
+</span></span><span style="display:flex;"><span>    p2<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">new</span> A(<span style="color:#666">3</span>); <span style="color:#080;font-style:italic">//构造同new的先后 p2的匿名对象 *p2
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    p1<span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">new</span> A[<span style="color:#666">3</span>]{ A(),A(<span style="color:#666">2</span>,<span style="color:#666">3</span>)};    <span style="color:#080;font-style:italic">//p1的3个匿名对象 p1[0],p1[1],p1[2]
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">delete</span> p2;  <span style="color:#080;font-style:italic">//*p2 析构
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    fun<span style="">（</span><span style="color:#666">*</span>p1<span style="">）</span>; <span style="color:#080;font-style:italic">//形参使用拷贝构造临时对象x，return x 使用拷贝构造构造临时对象-无名fun
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#080;font-style:italic">//return x之后，函数作用域结束，形参x的作用域结束，析构x；
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#080;font-style:italic">//到main函数这里函数调用函数结束，fun带回的临时对象作用域结束，析构
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">delete</span> p1;   <span style="color:#080;font-style:italic">//匿名数组，组内顺序跟构造顺序相反：析构顺序p1[2],p1[1],p1[0]
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>   <span style="color:#a2f;font-weight:bold">return</span> <span style="color:#666">0</span>;<span style="color:#080;font-style:italic">//main函数结束，析构其他对象跟构造相反：obj3,obj2,obj1
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">//稍微复杂一点的类的构造析构
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">A</span>{
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="">：</span>
+</span></span><span style="display:flex;"><span>A(<span style="color:#a2f;font-weight:bold">const</span> clock<span style="color:#666">&amp;</span> xv<span style="color:#666">=</span>clock(<span style="color:#666">3</span>,<span style="color:#666">5</span>),<span style="color:#a2f;font-weight:bold">const</span> clock<span style="color:#666">&amp;</span> yv<span style="color:#666">=</span>clock()<span style="">）</span><span style="color:#666">:</span>y(xv),x(yv){}
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">set</span>(<span style="color:#a2f;font-weight:bold">const</span> clock<span style="color:#666">&amp;</span> xv,<span style="color:#a2f;font-weight:bold">const</span>  clock<span style="color:#666">&amp;</span> yv);
+</span></span><span style="display:flex;"><span>clock <span style="color:#00a000">get</span>() <span style="color:#a2f;font-weight:bold">const</span> ;
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">private</span><span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span>clock x,y; <span style="color:#080;font-style:italic">//类内对象构造顺序跟声明顺序保持一致
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}<span style="">；</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>main(){
+</span></span><span style="display:flex;"><span>  A obj;<span style="color:#080;font-style:italic">//先执行 obj对象内的x的构造函数, 然后是y的构造函数，最后是obj自己的构造函数
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  retun <span style="color:#666">0</span>; <span style="color:#080;font-style:italic">//析构函数执行和构造相反
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">//类内的const ,static ,friend
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="">常成员函数</span> <span style="color:#a2f;font-weight:bold">const</span> <span style="">后置（不允许修改类的数据成员）；</span> <span style="">常数据成员</span><span style="color:#a2f;font-weight:bold">const</span> <span style="">前置（声明时初始化）</span>
+</span></span><span style="display:flex;"><span><span style="">常对象，常对象的引用，常对象的指针都不允许去调用非常成员函数</span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> A obj;
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> A<span style="color:#666">&amp;</span> robj<span style="color:#666">=</span>obj;
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> A<span style="color:#666">*</span> pobj<span style="color:#666">=&amp;</span>obj;
+</span></span><span style="display:flex;"><span>obj.set();<span style="color:#080;font-style:italic">//X
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>robj.set();<span style="color:#080;font-style:italic">//X
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>pobj<span style="color:#666">-&gt;</span>set();<span style="color:#080;font-style:italic">//X
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="">形参是常引用时同理</span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">fun</span>(<span style="color:#a2f;font-weight:bold">const</span> A<span style="color:#666">&amp;</span> xobj)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  xobj.set();<span style="color:#080;font-style:italic">//X
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">static</span> <span style="">统统前置，类的所有对象共享的数据成员和成员函数，只有一份。</span>
+</span></span><span style="display:flex;"><span><span style="">类外初始化</span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">class</span> <span style="color:#00f">A</span>{
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">public</span><span style="">：</span>
+</span></span><span style="display:flex;"><span>A<span style="">（</span><span style="color:#0b0;font-weight:bold">int</span> xv<span style="color:#666">=</span><span style="color:#666">0</span>,<span style="color:#0b0;font-weight:bold">int</span> yv<span style="color:#666">=</span><span style="color:#666">0</span><span style="">）</span><span style="color:#666">:</span>x(xv),y(yv){}
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">void</span> <span style="color:#00a000">xfun</span>(); <span style="color:#080;font-style:italic">//只能使用静态数据成员，因为它没有this指针
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#a2f;font-weight:bold">private</span><span style="color:#666">:</span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">int</span> x<span style="">；</span>
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> y;
+</span></span><span style="display:flex;"><span>}<span style="">；</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">static</span> <span style="color:#0b0;font-weight:bold">int</span> A<span style="color:#666">::</span>x<span style="color:#666">=</span><span style="color:#666">3</span>; <span style="color:#080;font-style:italic">//类外初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="">使用：可以独立使用使用类域限定，或者绑定对象</span>
+</span></span><span style="display:flex;"><span>A obj;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>A<span style="color:#666">::</span>x
+</span></span><span style="display:flex;"><span>A<span style="color:#666">::</span>xfun()
+</span></span><span style="display:flex;"><span>obj.x <span style="color:#080;font-style:italic">//要有权限
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>obj.xfun()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">//friend 
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="">友元类，友元的其他类的成员函数，友元函数（一定是类外定义的普通函数）</span> <span style="">都不是自己人</span>
+</span></span><span style="display:flex;"><span><span style="">可以访问类的私有成员（数据，函数）</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">//多态-静态多态
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span><span style="color:#666">1</span><span style="">、重载（普通函数重载）</span>
+</span></span><span style="display:flex;"><span><span style="color:#666">2</span><span style="">、运算符重载</span><span style="color:#666">-</span><span style="">相对其他类型和内置的同种运算的重载</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#666">1</span><span style="">、区分度：形参的个数和类型</span>
+</span></span><span style="display:flex;"><span><span style="">要能从调用的实参的形式上去判别参数类型，选取合适的重载函数工作</span>
+</span></span><span style="display:flex;"><span><span style="">个数，类型判别（识别常量的类型），</span>
+</span></span><span style="display:flex;"><span><span style="">选取重载的原则：形参个数匹配，类型严格匹配</span>(<span style="">不需要做类型转换）为第一顺序</span>
+</span></span><span style="display:flex;"><span><span style="">做类型转换后能适配的</span> <span style="">为第二顺序位</span>
+</span></span><span style="display:flex;"><span><span style="">不能转类型适应，找不到没法工作</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#666">2</span><span style="">、运算符重载</span> <span style="color:#666">=</span><span style="">，</span>[], <span style="color:#666">++</span>, <span style="">基本二元关系运算（</span><span style="color:#666">+</span><span style="">，</span><span style="color:#666">-</span><span style="">，</span><span style="color:#666">*</span><span style="">，</span><span style="color:#666">/</span>,<span style="">比较关系运算）</span>
+</span></span><span style="display:flex;"><span><span style="">输入输出流重载</span>
+</span></span><span style="display:flex;"><span><span style="">类型转换</span>
+</span></span></code></pre></div>
+    </div>
+
+    
+    
+    
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "your-disqus-shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="https://github.com/MACHENYE/machenye.github.io" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>stackoverflow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-488.000000, -1163.000000)">
+            <g id="stackoverflow" transform="translate(488.000000, 1163.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M42.0860128,53.5922927 L22.9745951,53.6011499 L22.9729497,49.5538824 L42.0835447,49.5440929 L42.0860128,53.5922927 L42.0860128,53.5922927 Z M55,30.6708298 L51.7306912,12 L47.7087256,12.6920259 L50.9775643,31.3628557 L55,30.6708298 L55,30.6708298 Z M42.5455518,44.3547147 L23.5156994,42.616026 L23.1410164,46.6470941 L42.1712214,48.3841513 L42.5455518,44.3547147 L42.5455518,44.3547147 Z M43.8009984,39.0731519 L25.3459811,34.1539179 L24.285633,38.0621508 L42.7419431,42.9819676 L43.8009984,39.0731519 L43.8009984,39.0731519 Z M46.2103463,34.4436411 L29.7494464,24.8164635 L27.6748215,28.3015328 L44.1365441,37.9292931 L46.2103463,34.4436411 L46.2103463,34.4436411 Z M50.2466504,31.6088756 L46.8745036,33.8883189 L36.106599,18.2318456 L39.4792159,15.9517031 L50.2466504,31.6088756 Z M45.3315807,40.2784283 L48.5799693,40.2784283 L48.5799693,60 L17,60 L17,40.2784283 L20.2648427,40.2784283 L20.2648427,56.8243495 L45.3315807,56.8243495 L45.3315807,40.2784283 Z" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="your-github-link" rel="me" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="438.536px" height="438.536px" viewBox="0 0 438.536 438.536" style="enable-background:new 0 0 438.536 438.536;"
+	 xml:space="preserve">
+<g>
+	<path d="M414.41,24.123C398.333,8.042,378.963,0,356.315,0H82.228C59.58,0,40.21,8.042,24.126,24.123
+		C8.045,40.207,0.003,59.576,0.003,82.225v274.084c0,22.647,8.042,42.018,24.123,58.102c16.084,16.084,35.454,24.126,58.102,24.126
+		h274.084c22.648,0,42.018-8.042,58.095-24.126c16.084-16.084,24.126-35.454,24.126-58.102V82.225
+		C438.532,59.576,430.49,40.204,414.41,24.123z M335.471,168.735c0.191,1.713,0.288,4.278,0.288,7.71
+		c0,15.989-2.334,32.025-6.995,48.104c-4.661,16.087-11.8,31.504-21.416,46.254c-9.606,14.749-21.074,27.791-34.396,39.115
+		c-13.325,11.32-29.311,20.365-47.968,27.117c-18.648,6.762-38.637,10.143-59.953,10.143c-33.116,0-63.76-8.952-91.931-26.836
+		c4.568,0.568,9.329,0.855,14.275,0.855c27.6,0,52.439-8.565,74.519-25.7c-12.941-0.185-24.506-4.179-34.688-11.991
+		c-10.185-7.803-17.273-17.699-21.271-29.691c4.947,0.76,8.658,1.137,11.132,1.137c4.187,0,9.042-0.76,14.56-2.279
+		c-13.894-2.669-25.598-9.562-35.115-20.697c-9.519-11.136-14.277-23.84-14.277-38.114v-0.571
+		c10.085,4.755,19.602,7.229,28.549,7.422c-17.321-11.613-25.981-28.265-25.981-49.963c0-10.66,2.758-20.747,8.278-30.264
+		c15.035,18.464,33.311,33.213,54.816,44.252c21.507,11.038,44.54,17.227,69.092,18.558c-0.95-3.616-1.427-8.186-1.427-13.704
+		c0-16.562,5.853-30.692,17.56-42.399c11.703-11.706,25.837-17.561,42.394-17.561c17.515,0,32.079,6.283,43.688,18.846
+		c13.134-2.474,25.892-7.33,38.26-14.56c-4.757,14.652-13.613,25.788-26.55,33.402c12.368-1.716,23.88-4.95,34.537-9.708
+		C357.458,149.793,347.462,160.166,335.471,168.735z"/>
+</g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <div class="copyright">
+    
+       © Copyright 
+       2023 
+       <span class="split">
+        <svg fill="#bbbbbb" width="15" height="15" version="1.1" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13.91,6.75c-1.17,2.25-4.3,5.31-6.07,6.94c-0.1903,0.1718-0.4797,0.1718-0.67,0C5.39,12.06,2.26,9,1.09,6.75&#xA;&#x9;C-1.48,1.8,5-1.5,7.5,3.45C10-1.5,16.48,1.8,13.91,6.75z"/>
+</svg>
+       </span>
+       Mcola
+    
+    </div>
+
+    
+      <div class="powerby">
+        Powered by <a href='http://www.gohugo.io/'>Hugo</a> Theme By <a href='https://github.com/nodejh/hugo-theme-mini'>nodejh</a>
+      </div>
+    
+</footer>
+
+
+
+  </body>
+</html>
