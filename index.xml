@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Mcola的博客</title>
-    <link>https://machenye.github.io/</link>
+    <link>https://example.com/</link>
     <description>Recent content on Mcola的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Nov 2023 15:52:28 +0800</lastBuildDate><atom:link href="https://machenye.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Nov 2023 15:52:28 +0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>博客笔记</title>
-      <link>https://machenye.github.io/post/%E5%8D%9A%E5%AE%A2%E7%AC%94%E8%AE%B0/</link>
+      <link>https://example.com/post/%E5%8D%9A%E5%AE%A2%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Wed, 01 Nov 2023 15:52:28 +0800</pubDate>
       
-      <guid>https://machenye.github.io/post/%E5%8D%9A%E5%AE%A2%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://example.com/post/%E5%8D%9A%E5%AE%A2%E7%AC%94%E8%AE%B0/</guid>
       <description>写博客初衷 🔗在Southernwood的带动下，萌生了写博客的装逼想法 以下内容均在exampleSite文件夹根目录进行 首次将网站上传到gi</description>
     </item>
     
     <item>
       <title>算法笔记</title>
-      <link>https://machenye.github.io/post/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</link>
+      <link>https://example.com/post/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Wed, 01 Nov 2023 12:58:01 +0800</pubDate>
       
-      <guid>https://machenye.github.io/post/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://example.com/post/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</guid>
       <description>取消同步流 🔗ios::sync_with_stdio(0), cin.tie(0), cout.tie(0); 在取消同步流的情况下，cin比scanf更快 本质：将答案存到缓冲区，不会直接</description>
     </item>
     
     <item>
       <title>蒻机的c&#43;&#43;笔记</title>
-      <link>https://machenye.github.io/post/%E8%92%BB%E6%9C%BA%E7%9A%84c&#43;&#43;%E7%AC%94%E8%AE%B0/</link>
+      <link>https://example.com/post/%E8%92%BB%E6%9C%BA%E7%9A%84c&#43;&#43;%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Wed, 01 Nov 2023 12:56:18 +0800</pubDate>
       
-      <guid>https://machenye.github.io/post/%E8%92%BB%E6%9C%BA%E7%9A%84c&#43;&#43;%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://example.com/post/%E8%92%BB%E6%9C%BA%E7%9A%84c&#43;&#43;%E7%AC%94%E8%AE%B0/</guid>
       <description>万能头文件： 🔗#include&amp;lt;bits/stdc++.h&amp;gt; 函数： 🔗把字符数组转为数字： 🔗char s[100]=&amp;#34;123456&amp;#34;; int x = atoi(s); cout&amp;lt;&amp;lt;x; //x = 123456 把表达式转换</description>
     </item>
     
