@@ -2,23 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://machenye.github.io/</loc>
+    <lastmod>2023-11-01T15:52:28+08:00</lastmod>
+  </url><url>
+    <loc>https://machenye.github.io/post/</loc>
+    <lastmod>2023-11-01T15:52:28+08:00</lastmod>
+  </url><url>
+    <loc>https://machenye.github.io/post/%E5%8D%9A%E5%AE%A2%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2023-11-01T15:52:28+08:00</lastmod>
+  </url><url>
+    <loc>https://machenye.github.io/post/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2023-11-01T12:58:01+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/post/</loc>
-    <lastmod>2023-11-01T12:58:01+08:00</lastmod>
-  </url><url>
-    <loc>https://example.com/post/blog2/</loc>
-    <lastmod>2023-11-01T12:58:01+08:00</lastmod>
-  </url><url>
-    <loc>https://example.com/post/blog/</loc>
+    <loc>https://machenye.github.io/post/%E8%92%BB%E6%9C%BA%E7%9A%84c&#43;&#43;%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2023-11-01T12:56:18+08:00</lastmod>
   </url><url>
-    <loc>https://example.com/about/</loc>
+    <loc>https://machenye.github.io/about/</loc>
     <lastmod>2019-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/</loc>
+    <loc>https://machenye.github.io/categories/</loc>
   </url><url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://machenye.github.io/tags/</loc>
   </url>
 </urlset>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>Mcola的博客</title>
+    <title>博客笔记 | Mcola的博客</title>
 
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
 <meta name="viewport" content="width=device-width,minimum-scale=1">
-<meta name="description" content="My Blog">
+<meta name="description" content="写博客初衷 🔗在Southernwood的带动下，萌生了写博客的装逼想法 以下内容均在exampleSite文件夹根目录进行 首次将网站上传到gi">
 <meta name="generator" content="Hugo 0.119.0">
 
 
@@ -50,55 +50,84 @@
     <main class="main">
       
 
-<div id="page-404">
-  <div class="text">
-      
-          <h1>404</h1>
-      
+<section id="single">
+    <h1 class="title">博客笔记</h1>
 
-      
-          <div>页面不存在</div>
-      
+    <div class="tip">
+        <time datetime="2023-11-01 15:52:28 &#43;0800 CST">2023年11月01日</time>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          213字
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          1分钟
+        </span>
     </div>
 
-  
-      <h2 class="read-more">更多内容</h2> 
+    
+    
+        
   
 
-  
-
 
     
+
+
+    <div class="content">
+      <h1 id="写博客初衷">写博客初衷 <a href="#%e5%86%99%e5%8d%9a%e5%ae%a2%e5%88%9d%e8%a1%b7" class="anchor">🔗</a></h1><p>在Southernwood的带动下，萌生了写博客的装逼想法</p>
+<p><strong>以下内容均在exampleSite文件夹根目录进行</strong></p>
+<h1 id="首次将网站上传到github仓库">首次将网站上传到github仓库 <a href="#%e9%a6%96%e6%ac%a1%e5%b0%86%e7%bd%91%e7%ab%99%e4%b8%8a%e4%bc%a0%e5%88%b0github%e4%bb%93%e5%ba%93" class="anchor">🔗</a></h1><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>hugo -F --cleanDestinationDir  // 生成新的public文件（每次更新都要生成新的pulbic文件）
+</span></span><span style="display:flex;"><span>cd public
+</span></span><span style="display:flex;"><span>git init  // 创建仓库
+</span></span><span style="display:flex;"><span>git remote add origin https://github.com/caecarxu/caecarxugithub.io.git //远程连接		git add .
+</span></span><span style="display:flex;"><span>git commit -m &#34;..&#34; // 提交信息
+</span></span><span style="display:flex;"><span>git push -u origin master
+</span></span></code></pre></div><h1 id="更新文章">更新文章 <a href="#%e6%9b%b4%e6%96%b0%e6%96%87%e7%ab%a0" class="anchor">🔗</a></h1><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>hugo new post/blog.md
+</span></span></code></pre></div><p>之后在vscode进行修改，可在本地网站查看</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>hugo -F --cleanDestinationDir
+</span></span><span style="display:flex;"><span>cd public
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git status
+</span></span><span style="display:flex;"><span>git commit -m &#34;更新&#34;
+</span></span><span style="display:flex;"><span>git push
+</span></span></code></pre></div>
+    </div>
+
     
     
-        
-        
-        <section class="item">
-          <div>
-            <h1 class="title"><a href='/post/%E5%8D%9A%E5%AE%A2%E7%AC%94%E8%AE%B0/'>博客笔记</a></h1>   
-            <div class="date">11月 1, 2023</div>
-          </div>
-        </section>
     
-        
-        
-        <section class="item">
-          <div>
-            <h1 class="title"><a href='/post/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/'>算法笔记</a></h1>   
-            <div class="date">11月 1, 2023</div>
-          </div>
-        </section>
+  <div id="comment">
     
-        
-        
-        <section class="item">
-          <div>
-            <h1 class="title"><a href='/post/%E8%92%BB%E6%9C%BA%E7%9A%84c&#43;&#43;%E7%AC%94%E8%AE%B0/'>蒻机的c&#43;&#43;笔记</a></h1>   
-            <div class="date">11月 1, 2023</div>
-          </div>
-        </section>
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
     
-</div>
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "your-disqus-shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
 
     </main>
     
