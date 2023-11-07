@@ -59,13 +59,13 @@
           ·
         </span>
         <span>
-          363字
+          510字
         </span>
         <span class="split">
           ·
         </span>
         <span>
-          1分钟
+          2分钟
         </span>
     </div>
 
@@ -73,19 +73,40 @@
     
         
   
+    <aside class="toc">
+      <details>
+          <summary>Table of Contents
+          </summary>
+          <div>
+              <nav id="TableOfContents">
+  <ul>
+    <li><a href="#取消同步流">取消同步流</a></li>
+    <li><a href="#前缀和">前缀和</a></li>
+    <li><a href="#差分数组">差分数组</a></li>
+    <li><a href="#二维前缀和">二维前缀和</a></li>
+  </ul>
+</nav>
+          </div>
+      </details>
+    </aside>
+  
 
 
     
 
 
     <div class="content">
-      <h1 id="取消同步流">取消同步流 <a href="#%e5%8f%96%e6%b6%88%e5%90%8c%e6%ad%a5%e6%b5%81" class="anchor">🔗</a></h1><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>ios<span style="color:#666">::</span>sync_with_stdio(<span style="color:#666">0</span>), cin.tie(<span style="color:#666">0</span>), cout.tie(<span style="color:#666">0</span>);
+      <h2 id="取消同步流">取消同步流 <a href="#%e5%8f%96%e6%b6%88%e5%90%8c%e6%ad%a5%e6%b5%81" class="anchor">🔗</a></h2><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>ios<span style="color:#666">::</span>sync_with_stdio(<span style="color:#666">0</span>), cin.tie(<span style="color:#666">0</span>), cout.tie(<span style="color:#666">0</span>);
 </span></span></code></pre></div><p>在取消同步流的情况下，cin比scanf更快</p>
 <p><strong>本质</strong>：将答案存到缓冲区，不会直接输出出来
 <strong>注意</strong>：一定要写完整</p>
 <p><strong>不要使用endl改用&rsquo;\n&rsquo;</strong>，endl强制刷新缓冲区，导致速度变慢</p>
 <p><strong>输入的时候就只输入，不用处理其他</strong></p>
-<h1 id="前缀和">前缀和 <a href="#%e5%89%8d%e7%bc%80%e5%92%8c" class="anchor">🔗</a></h1><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">using</span> ll <span style="color:#666">=</span> <span style="color:#0b0;font-weight:bold">long</span> <span style="color:#0b0;font-weight:bold">long</span>;
+<h2 id="前缀和">前缀和 <a href="#%e5%89%8d%e7%bc%80%e5%92%8c" class="anchor">🔗</a></h2><p>prefix[i] = ${\sum_1^i}$a[i]
+<p class="markdown-image">
+  <img src="a.png" alt=""  />
+</p></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">using</span> ll <span style="color:#666">=</span> <span style="color:#0b0;font-weight:bold">long</span> <span style="color:#0b0;font-weight:bold">long</span>;
 </span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">int</span> N <span style="color:#666">=</span> <span style="color:#666">1e5</span><span style="color:#666">+</span><span style="color:#666">9</span>;
 </span></span><span style="display:flex;"><span>ll a[N],prefix[N];
 </span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
@@ -103,7 +124,10 @@
 </span></span><span style="display:flex;"><span>		cout<span style="color:#666">&lt;&lt;</span>prefix[r]<span style="color:#666">-</span>prefix[l<span style="color:#666">-</span><span style="color:#666">1</span>]<span style="color:#666">&lt;&lt;</span><span style="color:#b44">&#39;\n&#39;</span>;
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h1 id="差分数组">差分数组 <a href="#%e5%b7%ae%e5%88%86%e6%95%b0%e7%bb%84" class="anchor">🔗</a></h1><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>d[i] <span style="color:#666">=</span> a[i]<span style="color:#666">-</span>a[i<span style="color:#666">-</span><span style="color:#666">1</span>];
+</span></span></code></pre></div><h2 id="差分数组">差分数组 <a href="#%e5%b7%ae%e5%88%86%e6%95%b0%e7%bb%84" class="anchor">🔗</a></h2><p><p class="markdown-image">
+  <img src="b.png" alt=""  />
+</p></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>d[i] <span style="color:#666">=</span> a[i]<span style="color:#666">-</span>a[i<span style="color:#666">-</span><span style="color:#666">1</span>];
 </span></span></code></pre></div><p>性质：</p>
 <ul>
 <li>${\sum_1^i}$ d[i] = a[i]</li>
@@ -124,9 +148,9 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">while</span>(m<span style="color:#666">--</span>)
 </span></span><span style="display:flex;"><span>	{
 </span></span><span style="display:flex;"><span>		cin<span style="color:#666">&gt;&gt;</span>l<span style="color:#666">&gt;&gt;</span>r<span style="color:#666">&gt;&gt;</span>x;
-</span></span><span style="display:flex;"><span>		diff[l]<span style="color:#666">+=</span>x;
-</span></span><span style="display:flex;"><span>		diff[r<span style="color:#666">+</span><span style="color:#666">1</span>]<span style="color:#666">-=</span>x;
-</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>		diff[l]<span style="color:#666">+=</span>x;  <span style="color:#080;font-style:italic">// l及后面的数组都+x
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>		diff[r<span style="color:#666">+</span><span style="color:#666">1</span>]<span style="color:#666">-=</span>x; <span style="color:#080;font-style:italic">// r+1及后面的数组都-x
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	}
 </span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">1</span>;i<span style="color:#666">&lt;=</span>n;i<span style="color:#666">++</span>) a[i] <span style="color:#666">=</span> diff[i] <span style="color:#666">+</span> a[i<span style="color:#666">-</span><span style="color:#666">1</span>];
 </span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">1</span>;i<span style="color:#666">&lt;=</span>n;i<span style="color:#666">++</span>) prefix[i] <span style="color:#666">=</span> prefix[i<span style="color:#666">-</span><span style="color:#666">1</span>] <span style="color:#666">+</span> a[i];
 </span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> q;
@@ -137,6 +161,53 @@
 </span></span><span style="display:flex;"><span>		cout<span style="color:#666">&lt;&lt;</span>prefix[r]<span style="color:#666">-</span>prefix[l<span style="color:#666">-</span><span style="color:#666">1</span>]<span style="color:#666">&lt;&lt;</span><span style="color:#b44">&#39;\n&#39;</span>;
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><p class="markdown-image">
+  <img src="c.png" alt=""  />
+</p></p>
+<h2 id="二维前缀和">二维前缀和 <a href="#%e4%ba%8c%e7%bb%b4%e5%89%8d%e7%bc%80%e5%92%8c" class="anchor">🔗</a></h2><p><p class="markdown-image">
+  <img src="d.png" alt=""  />
+</p></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>prefix[i][j]  <span style="color:#080;font-style:italic">// 为从[1][1]到[i][j]的和
+</span></span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>prefix[i][j] <span style="color:#666">=</span> prefix[i<span style="color:#666">-</span><span style="color:#666">1</span>][j]<span style="color:#666">+</span>prefix[i][j<span style="color:#666">-</span><span style="color:#666">1</span>]<span style="color:#666">-</span>prefix[i<span style="color:#666">-</span><span style="color:#666">1</span>][j<span style="color:#666">-</span><span style="color:#666">1</span>]<span style="color:#666">+</span>a[i][j]
+</span></span></code></pre></div><p><p class="markdown-image">
+  <img src="e.png" alt=""  />
+</p></p>
+<p><p class="markdown-image">
+  <img src="f.png" alt=""  />
+</p></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>anx <span style="color:#666">=</span> p[x2][y2]<span style="color:#666">-</span>p[x2][y1<span style="color:#666">-</span><span style="color:#666">1</span>]<span style="color:#666">-</span>p[x1<span style="color:#666">-</span><span style="color:#666">1</span>][y2]<span style="color:#666">+</span>p[x1<span style="color:#666">-</span><span style="color:#666">1</span>][y1<span style="color:#666">-</span><span style="color:#666">1</span>]
+</span></span></code></pre></div><p><strong>求最大子矩阵和</strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#080">#include&lt;bits/stdc++.h&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080"></span><span style="color:#a2f;font-weight:bold">using</span> <span style="color:#a2f;font-weight:bold">namespace</span> std;
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">const</span> <span style="color:#0b0;font-weight:bold">int</span> N <span style="color:#666">=</span> <span style="color:#666">150</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">using</span> ll <span style="color:#666">=</span> <span style="color:#0b0;font-weight:bold">long</span> <span style="color:#0b0;font-weight:bold">long</span>;
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> a[N][N],prefix[N][N];
+</span></span><span style="display:flex;"><span><span style="color:#0b0;font-weight:bold">int</span> <span style="color:#00a000">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	ios<span style="color:#666">::</span>sync_with_stdio(<span style="color:#666">0</span>), cin.tie(<span style="color:#666">0</span>), cout.tie(<span style="color:#666">0</span>);
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> n;
+</span></span><span style="display:flex;"><span>	cin<span style="color:#666">&gt;&gt;</span>n;
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">1</span>;i<span style="color:#666">&lt;=</span>n;i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> j<span style="color:#666">=</span><span style="color:#666">1</span>;j<span style="color:#666">&lt;=</span>n;j<span style="color:#666">++</span>) cin<span style="color:#666">&gt;&gt;</span>a[i][j];  <span style="color:#080;font-style:italic">// 输入二维数组
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>	<span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> i<span style="color:#666">=</span><span style="color:#666">1</span>;i<span style="color:#666">&lt;=</span>n;i<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> j<span style="color:#666">=</span><span style="color:#666">1</span>;j<span style="color:#666">&lt;=</span>n;j<span style="color:#666">++</span>) prefix[i][j] <span style="color:#666">=</span> prefix[i<span style="color:#666">-</span><span style="color:#666">1</span>][j]<span style="color:#666">+</span>prefix[i][j<span style="color:#666">-</span><span style="color:#666">1</span>]<span style="color:#666">-</span>prefix[i<span style="color:#666">-</span><span style="color:#666">1</span>][j<span style="color:#666">-</span><span style="color:#666">1</span>]<span style="color:#666">+</span>a[i][j];
+</span></span><span style="display:flex;"><span>	<span style="color:#0b0;font-weight:bold">int</span> maxv <span style="color:#666">=</span> prefix[<span style="color:#666">1</span>][<span style="color:#666">1</span>];
+</span></span><span style="display:flex;"><span>	<span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> x1 <span style="color:#666">=</span> <span style="color:#666">1</span>;x1<span style="color:#666">&lt;=</span>n;x1<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>	{
+</span></span><span style="display:flex;"><span>		<span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> y1 <span style="color:#666">=</span> <span style="color:#666">1</span>;y1<span style="color:#666">&lt;=</span>n;y1<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>			<span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> x2 <span style="color:#666">=</span> x1;x2<span style="color:#666">&lt;=</span>n;x2<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>			{
+</span></span><span style="display:flex;"><span>				<span style="color:#a2f;font-weight:bold">for</span>(<span style="color:#0b0;font-weight:bold">int</span> y2 <span style="color:#666">=</span> y1;y2<span style="color:#666">&lt;=</span>n;y2<span style="color:#666">++</span>)
+</span></span><span style="display:flex;"><span>				{
+</span></span><span style="display:flex;"><span>					<span style="color:#0b0;font-weight:bold">int</span> ans <span style="color:#666">=</span> prefix[x2][y2]<span style="color:#666">-</span>prefix[x2][y1<span style="color:#666">-</span><span style="color:#666">1</span>]<span style="color:#666">-</span>prefix[x1<span style="color:#666">-</span><span style="color:#666">1</span>][y2]<span style="color:#666">+</span>prefix[x1<span style="color:#666">-</span><span style="color:#666">1</span>][y1<span style="color:#666">-</span><span style="color:#666">1</span>];
+</span></span><span style="display:flex;"><span>					maxv <span style="color:#666">=</span> max(maxv,ans);
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	cout<span style="color:#666">&lt;&lt;</span>maxv;
+</span></span><span style="display:flex;"><span>}	
 </span></span></code></pre></div>
     </div>
 
