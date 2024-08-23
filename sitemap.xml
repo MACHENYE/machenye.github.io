@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.mcola.cn/2024/08/20/ML%20and%20Data%20Analyze/</loc>
+    <loc>https://machenye.github.io/2024/08/20/ML%20and%20Data%20Analyze/</loc>
     
     <lastmod>2024-08-23</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://www.mcola.cn/2024/08/20/JS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://machenye.github.io/2024/08/20/JS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2024-08-23</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://www.mcola.cn/2024/08/20/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://machenye.github.io/2024/08/20/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
     
     <lastmod>2024-08-23</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://www.mcola.cn/links/index.html</loc>
+    <loc>https://machenye.github.io/links/index.html</loc>
     
     <lastmod>2024-08-23</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://www.mcola.cn/categories/index.html</loc>
+    <loc>https://machenye.github.io/categories/index.html</loc>
     
     <lastmod>2024-08-23</lastmod>
     
@@ -48,7 +48,7 @@
   
 
   <url>
-    <loc>https://www.mcola.cn/</loc>
+    <loc>https://machenye.github.io/</loc>
     <lastmod>2024-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -58,21 +58,21 @@
 
   
   <url>
-    <loc>https://www.mcola.cn/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://machenye.github.io/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2024-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.mcola.cn/categories/%E5%AD%A6%E6%A0%A1%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://machenye.github.io/categories/%E5%AD%A6%E6%A0%A1%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2024-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.mcola.cn/categories/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/</loc>
+    <loc>https://machenye.github.io/categories/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2024-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

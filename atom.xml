@@ -3,11 +3,11 @@
   <title>Mcola 博客</title>
   
   
-  <link href="https://www.mcola.cn/atom.xml" rel="self"/>
+  <link href="https://machenye.github.io/atom.xml" rel="self"/>
   
-  <link href="https://www.mcola.cn/"/>
+  <link href="https://machenye.github.io/"/>
   <updated>2024-08-23T02:48:35.427Z</updated>
-  <id>https://www.mcola.cn/</id>
+  <id>https://machenye.github.io/</id>
   
   <author>
     <name>Mcola</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>ML and Data Analyze</title>
-    <link href="https://www.mcola.cn/2024/08/20/ML%20and%20Data%20Analyze/"/>
-    <id>https://www.mcola.cn/2024/08/20/ML%20and%20Data%20Analyze/</id>
+    <link href="https://machenye.github.io/2024/08/20/ML%20and%20Data%20Analyze/"/>
+    <id>https://machenye.github.io/2024/08/20/ML%20and%20Data%20Analyze/</id>
     <published>2024-08-20T08:58:46.000Z</published>
     <updated>2024-08-23T02:48:35.427Z</updated>
     
@@ -33,15 +33,15 @@
     
     
     
-    <category term="学校学习" scheme="https://www.mcola.cn/categories/%E5%AD%A6%E6%A0%A1%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学校学习" scheme="https://machenye.github.io/categories/%E5%AD%A6%E6%A0%A1%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>JS 学习笔记</title>
-    <link href="https://www.mcola.cn/2024/08/20/JS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://www.mcola.cn/2024/08/20/JS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <link href="https://machenye.github.io/2024/08/20/JS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://machenye.github.io/2024/08/20/JS-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
     <published>2024-08-20T08:53:46.000Z</published>
     <updated>2024-08-23T02:48:29.531Z</updated>
     
@@ -56,15 +56,15 @@
     
     
     
-    <category term="前端学习" scheme="https://www.mcola.cn/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/"/>
+    <category term="前端学习" scheme="https://machenye.github.io/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
   
   <entry>
     <title>搭建博客</title>
-    <link href="https://www.mcola.cn/2024/08/20/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
-    <id>https://www.mcola.cn/2024/08/20/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</id>
+    <link href="https://machenye.github.io/2024/08/20/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://machenye.github.io/2024/08/20/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</id>
     <published>2024-08-20T07:26:34.000Z</published>
     <updated>2024-08-23T02:48:24.166Z</updated>
     
@@ -84,7 +84,7 @@
     
     
     
-    <category term="网站搭建" scheme="https://www.mcola.cn/categories/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/"/>
+    <category term="网站搭建" scheme="https://machenye.github.io/categories/%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA/"/>
     
     
   </entry>
