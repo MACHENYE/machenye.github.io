@@ -66,9 +66,9 @@
     <link href="https://machenye.github.io/2024/08/20/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>https://machenye.github.io/2024/08/20/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</id>
     <published>2024-08-20T07:26:34.000Z</published>
-    <updated>2024-08-23T02:48:24.166Z</updated>
+    <updated>2024-08-23T03:26:45.617Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>想重新熟悉一下怎么搭建一个博客，于是就有了这个新的博客</p></blockquote><p>这次使用的是hexo来搭建博客，之前使用过</p><ul><li>hugo 这个太过久远了都忘记怎么上传了</li><li>notion-next+vercel服务器 这个必须要挂梯子才能使用，而且速度特别慢，编辑文章非常不方便</li><li>想过租一个服务器但是价格有点贵，而且感觉用不太到，可能后面需要把自己做的一些vue+springboot项目部署的时候才可能会用到</li></ul><p>使用hexo并且部署到github的服务器上，可以本地预览，也可以上传到服务器上，后面买了个域名但是还在备案，等后面域名好了，就可以不用挂梯子也能访问这个博客了</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>想重新熟悉一下怎么搭建一个博客，于是就有了这个新的博客</p></blockquote><p>这次使用的是hexo来搭建博客，之前使用过</p><ul><li>hugo 这个太过久远了都忘记怎么上传了</li><li>notion-next+vercel服务器 这个必须要挂梯子才能使用，而且速度特别慢，编辑文章非常不方便</li><li>想过租一个服务器但是价格有点贵，而且感觉用不太到，可能后面需要把自己做的一些vue+springboot项目部署的时候才可能会用到</li></ul><p><a href="https://www.bilibili.com/video/BV1Hi421a7K4?vd_source=60d132d325064c67a7980dc5ab2ba430">搭建博客的b站链接</a></p><p>使用hexo并且部署到github的服务器上，可以本地预览，也可以上传到服务器上，后面买了个域名但是还在备案，等后面域名好了，就可以不用挂梯子也能访问这个博客了</p><hr><p><a href="https://wanwang.aliyun.com/domain/tld#.com">阿里云域名链接</a><br>现在域名已经成功搞好了，用的是阿里的域名，感觉操作起来还是很方便的，可以直接访问mcola.cn来访问我的博客了，然后最近又调整了一下博客的排版样式，现在应该就没有什么问题了，接下来就努力更新就好了</p>]]></content>
     
     
       
